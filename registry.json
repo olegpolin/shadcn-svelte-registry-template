@@ -4,6 +4,21 @@
   "homepage": "https://shadcn-svelte-registry-template.vercel.app",
   "items": [
     {
+      "name": "badge",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/badge/badge.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/badge/index.ts"
+        }
+      ]
+    },
+    {
       "name": "button",
       "type": "registry:ui",
       "registryDependencies": [],
