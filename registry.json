@@ -96,6 +96,49 @@
           "path": "src/lib/registry/ui/dropdown-menu/index.ts"
         }
       ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/navigation-menu/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/navigation-menu/navigation-menu-content.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/navigation-menu/navigation-menu-indicator.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/navigation-menu/navigation-menu-item.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/navigation-menu/navigation-menu-link.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/navigation-menu/navigation-menu-list.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/navigation-menu/navigation-menu-trigger.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/navigation-menu/navigation-menu-viewport.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/navigation-menu/navigation-menu.svelte"
+        }
+      ]
     }
   ]
 }
