@@ -1,0 +1,8 @@
+{
+  "$schema": "https://shadcn-svelte.com/schema/registry.json",
+  "name": "shadcn-svelte-registry-template",
+  "homepage": "https://shadcn-svelte-registry-template.vercel.app",
+  "items": [
+    
+  ]
+}
