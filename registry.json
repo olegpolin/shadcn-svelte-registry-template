@@ -156,6 +156,25 @@
       ]
     },
     {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/scroll-area/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/scroll-area/scroll-area-scrollbar.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/scroll-area/scroll-area.svelte"
+        }
+      ]
+    },
+    {
       "name": "tabs",
       "type": "registry:ui",
       "registryDependencies": [],
