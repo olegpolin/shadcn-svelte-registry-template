@@ -154,6 +154,33 @@
           "path": "src/lib/registry/ui/navigation-menu/navigation-menu.svelte"
         }
       ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/tabs/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/tabs/tabs-content.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/tabs/tabs-list.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/tabs/tabs-trigger.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/tabs/tabs.svelte"
+        }
+      ]
     }
   ]
 }
