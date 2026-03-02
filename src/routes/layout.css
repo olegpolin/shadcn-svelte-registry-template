@@ -108,6 +108,8 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans: 'Geist', sans-serif;
 }
 
 @layer base {
@@ -116,5 +118,15 @@
   }
   body {
     @apply bg-background text-foreground;
+
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
   }
+}
+
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/geist.woff2') format('woff2');
 }
