@@ -3,6 +3,20 @@
   "name": "shadcn-svelte-registry-template",
   "homepage": "https://shadcn-svelte-registry-template.vercel.app",
   "items": [
-    
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/button/button.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/button/index.ts"
+        }
+      ]
+    }
   ]
 }
