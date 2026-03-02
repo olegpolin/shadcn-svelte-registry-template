@@ -17,6 +17,85 @@
           "path": "src/lib/registry/ui/button/index.ts"
         }
       ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu-checkbox-group.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu-checkbox-item.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu-content.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu-group-heading.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu-group.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu-item.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu-label.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu-portal.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu-radio-group.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu-radio-item.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu-separator.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu-shortcut.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu-sub-content.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu-sub-trigger.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu-sub.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu-trigger.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/dropdown-menu.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dropdown-menu/index.ts"
+        }
+      ]
     }
   ]
 }
