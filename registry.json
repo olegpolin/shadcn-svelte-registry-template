@@ -156,6 +156,37 @@
       ]
     },
     {
+      "name": "popover",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/popover/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/popover/popover-close.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/popover/popover-content.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/popover/popover-portal.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/popover/popover-trigger.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/popover/popover.svelte"
+        }
+      ]
+    },
+    {
       "name": "scroll-area",
       "type": "registry:ui",
       "registryDependencies": [],
