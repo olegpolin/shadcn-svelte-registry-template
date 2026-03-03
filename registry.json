@@ -175,6 +175,21 @@
       ]
     },
     {
+      "name": "separator",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/separator/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/separator/separator.svelte"
+        }
+      ]
+    },
+    {
       "name": "tabs",
       "type": "registry:ui",
       "registryDependencies": [],
