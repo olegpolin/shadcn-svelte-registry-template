@@ -49,7 +49,7 @@
   </a>
 {/snippet}
 
-<header class="flex flex-row items-center justify-between gap-8 px-6 py-3">
+<header class="h-14 flex flex-row items-center justify-between gap-8 px-6 py-3">
   <Popover.Root bind:open={mobileMenuOpen}>
     <Popover.Trigger class={['md:hidden gap-2.5! p-0!', buttonVariants({ variant: 'ghost' })]}>
       <div class="h-8 flex flex-row items-center">
