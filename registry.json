@@ -477,6 +477,17 @@
           "path": "src/lib/registry/ui/tooltip/tooltip.svelte"
         }
       ]
+    },
+    {
+      "name": "is-mobile",
+      "type": "registry:hook",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:hook",
+          "path": "src/lib/registry/hooks/is-mobile.svelte.ts"
+        }
+      ]
     }
   ]
 }
