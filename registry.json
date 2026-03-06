@@ -287,6 +287,125 @@
       ]
     },
     {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "local:is-mobile",
+        "local:input",
+        "local:tooltip",
+        "local:skeleton",
+        "local:separator",
+        "local:button",
+        "local:sheet"
+      ],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/constants.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/context.svelte.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-content.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-footer.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-group-action.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-group-content.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-group-label.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-group.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-header.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-input.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-inset.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-menu-action.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-menu-badge.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-menu-button.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-menu-item.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-menu-skeleton.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-menu-sub-button.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-menu-sub-item.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-menu-sub.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-menu.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-provider.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-rail.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-separator.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar-trigger.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sidebar/sidebar.svelte"
+        }
+      ]
+    },
+    {
       "name": "tabs",
       "type": "registry:ui",
       "registryDependencies": [],
