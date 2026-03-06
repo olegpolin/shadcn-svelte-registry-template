@@ -406,6 +406,21 @@
       ]
     },
     {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/skeleton/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/skeleton/skeleton.svelte"
+        }
+      ]
+    },
+    {
       "name": "tabs",
       "type": "registry:ui",
       "registryDependencies": [],
