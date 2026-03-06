@@ -446,6 +446,37 @@
           "path": "src/lib/registry/ui/tabs/tabs.svelte"
         }
       ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/tooltip/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/tooltip/tooltip-content.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/tooltip/tooltip-portal.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/tooltip/tooltip-provider.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/tooltip/tooltip-trigger.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/tooltip/tooltip.svelte"
+        }
+      ]
     }
   ]
 }
