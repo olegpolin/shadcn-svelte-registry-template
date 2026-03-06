@@ -236,6 +236,57 @@
       ]
     },
     {
+      "name": "sheet",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sheet/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sheet/sheet-close.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sheet/sheet-content.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sheet/sheet-description.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sheet/sheet-footer.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sheet/sheet-header.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sheet/sheet-overlay.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sheet/sheet-portal.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sheet/sheet-title.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sheet/sheet-trigger.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sheet/sheet.svelte"
+        }
+      ]
+    },
+    {
       "name": "tabs",
       "type": "registry:ui",
       "registryDependencies": [],
