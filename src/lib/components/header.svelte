@@ -5,7 +5,7 @@
   import { Button, buttonVariants } from '$lib/registry/ui/button';
   import { Separator } from '$lib/registry/ui/separator';
   import { userPrefersMode } from 'mode-watcher';
-  import { sidebarNavLinks, componentLinks } from '$lib/utils/navigation';
+  import { headerLinks, sidebarNavLinks } from '$lib/utils/navigation';
   import Logo from '$lib/assets/logo.svelte';
   import GitHubIcon from '$lib/assets/icons/github-icon.svelte';
   import ModeSwitcherIcon from '$lib/assets/icons/mode-switcher-icon.svelte';
@@ -13,32 +13,19 @@
   import MoonIcon from '@lucide/svelte/icons/moon';
   import MonitorIcon from '@lucide/svelte/icons/monitor';
 
-  const navMenuLinks = [
+  const mobileNavLinks = [
     {
-      title: 'Docs',
-      href: '/docs/installation'
+      title: 'Menu',
+      links: [
+        {
+          title: 'Home',
+          href: '/'
+        },
+        ...headerLinks
+      ]
     },
-    {
-      title: 'Components',
-      href: '/docs/components'
-    },
-    {
-      title: 'Blocks',
-      href: '/blocks'
-    },
-    {
-      title: 'Charts',
-      href:'/charts/area'
-    },
-    {
-      title: 'Themes',
-      href: '/themes'
-    },
-    {
-      title: 'Colors',
-      href: '/colors'
-    }
-  ]
+    ...sidebarNavLinks
+  ];
 
   let mobileMenuOpen = $state(false);
 </script>
@@ -78,35 +65,16 @@
       preventScroll
     >
       <div class="flex flex-col gap-8 overflow-auto p-6">
-        <div class="flex flex-col gap-4">
-          <span class="text-sm text-muted-foreground font-medium">Menu</span>
-          <div class="flex flex-col gap-3">
-            {@render mobileLink({ title: 'Home', href: '/' })}
-            {#each navMenuLinks as navMenuLink}
-              {@render mobileLink({ title: navMenuLink.title, href: navMenuLink.href })}
-            {/each}
-          </div>
-        </div>
-
-        {#each sidebarNavLinks as group (group.title)}
+        {#each mobileNavLinks as navGroup (navGroup.title)}
           <div class="flex flex-col gap-4">
-            <span class="text-sm text-muted-foreground font-medium">{group.title}</span>
+            <span class="text-sm text-muted-foreground font-medium">{navGroup.title}</span>
             <div class="flex flex-col gap-3">
-              {#each group.links as groupLink}
-                {@render mobileLink({ title: groupLink.title, href: groupLink.href })}
+              {#each navGroup.links as navGroupLink}
+                {@render mobileLink({ title: navGroupLink.title, href: navGroupLink.href })}
               {/each}
             </div>
           </div>
         {/each}
-
-        <div class="flex flex-col gap-4">
-          <span class="text-sm text-muted-foreground font-medium">Components</span>
-          <div class="flex flex-col gap-3">
-            {#each componentLinks as componentLink}
-              {@render mobileLink({ title: componentLink.title, href: componentLink.href })}
-            {/each}
-          </div>
-        </div>
       </div>
     </Popover.Content>
   </Popover.Root>
@@ -123,11 +91,11 @@
         </NavigationMenu.Link>
       </NavigationMenu.Item>
 
-      {#each navMenuLinks as navMenuLink}
+      {#each headerLinks as headerLink}
         <NavigationMenu.Item>
           <NavigationMenu.Link>
             {#snippet child()}
-              <Button variant="ghost" size="sm" href={navMenuLink.href}>{navMenuLink.title}</Button>
+              <Button variant="ghost" size="sm" href={headerLink.href}>{headerLink.title}</Button>
             {/snippet}
           </NavigationMenu.Link>
         </NavigationMenu.Item>
