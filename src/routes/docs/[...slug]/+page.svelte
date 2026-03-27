@@ -19,7 +19,7 @@
     <div class="mx-auto flex w-full max-w-2xl min-w-0 flex-1 flex-col px-4 py-6 text-neutral-800 md:px-0 lg:py-8 dark:text-neutral-300">
       <div class="flex flex-col gap-2">
 				<div class="flex flex-col gap-2">
-					<div class="flex items-start justify-between">
+					<div class="flex items-start justify-between pb-2">
 						<h1 class="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl">
               {data.meta.title}
             </h1>
