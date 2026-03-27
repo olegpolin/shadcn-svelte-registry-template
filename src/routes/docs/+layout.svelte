@@ -12,7 +12,7 @@
     class="max-md:hidden h-[calc(100svh-7.5rem)] xl:h-[calc(100svh-10rem)] sticky top-14.25 z-30 shrink-0 overscroll-none bg-transparent"
     collapsible="none"
   >
-    <Sidebar.Content class="overflow-x-hidden px-2">
+    <Sidebar.Content class="no-scrollbar overflow-x-hidden px-2">
       <div class="sticky h-8 -top-1 z-10 shrink-0 bg-linear-to-b from-background via-background/80 to-background/50 blur-xs"></div>
       {#each sidebarNavLinks as group (group.title)}
         <Sidebar.Group>
