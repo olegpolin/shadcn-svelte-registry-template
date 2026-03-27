@@ -9,7 +9,7 @@
 
 <Sidebar.Provider class="px-2">
   <Sidebar.Root
-    class="max-md:hidden h-[calc(100svh-7.5rem)] xl:h-[calc(100svh-10rem)] sticky top-14.25 z-30 overscroll-none bg-transparent"
+    class="max-md:hidden h-[calc(100svh-7.5rem)] xl:h-[calc(100svh-10rem)] sticky top-14.25 z-30 shrink-0 overscroll-none bg-transparent"
     collapsible="none"
   >
     <Sidebar.Content class="overflow-x-hidden px-2">
