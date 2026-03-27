@@ -31,7 +31,8 @@ export const load: PageLoad = async ({ params }) => {
     return {
       markdown: module.default,
       meta: module.metadata as PageMetadata,
-      toc
+      toc,
+      slug: params.slug
     }
   } catch (e) {
     error(404, 'Not Found');
