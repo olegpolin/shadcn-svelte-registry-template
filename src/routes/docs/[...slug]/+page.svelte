@@ -1,6 +1,8 @@
 <script lang="ts">
   import type { PageProps } from './$types';
+  import { Badge } from '$lib/registry/ui/badge';
   import DocsToc from '$lib/components/docs-toc.svelte';
+  import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
 
   let { data }: PageProps = $props();
   let Markdown = $derived(data.markdown);
@@ -28,6 +30,19 @@
             {data.meta.description}
           </p>
         </div>
+        {#if data.slug.startsWith('components/')}
+          <div class="flex items-center space-x-2 pt-4">
+            <Badge
+              href={`https://www.shadcn-svelte.com/docs/components/${data.slug.replace('components/', '')}`}
+              variant="secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View shadcn-svelte docs
+              <ArrowUpRightIcon />
+            </Badge>
+          </div>
+        {/if}
       </div>
       <div class="w-full flex-1 mt-4">
 				<Markdown />
