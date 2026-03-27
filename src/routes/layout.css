@@ -130,3 +130,11 @@
   font-display: swap;
   src: url('/fonts/geist.woff2') format('woff2');
 }
+
+@utility no-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
