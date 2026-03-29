@@ -4,6 +4,35 @@ export interface TocEntry {
   items: TocEntry[];
 }
 
+export function sanitizeHeadingTitle(rawTitle: string): string {
+  return rawTitle
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[*_]{1,3}(.*?)[*_]{1,3}/g, '$1')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/<[^>]+>/g, '')
+    .replace(/\s+\{#[^}]+\}\s*$/, '')
+    .trim();
+}
+
+export function slugifyHeadingTitle(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s-]/gu, '')
+    .trim()
+    .replace(/\s+/g, '-');
+}
+
+function makeUniqueSlug(baseSlug: string, slugCounts: Map<string, number>): string {
+  if (slugCounts.has(baseSlug)) {
+    const count = slugCounts.get(baseSlug)! + 1;
+    slugCounts.set(baseSlug, count);
+    return `${baseSlug}-${count}`;
+  }
+
+  slugCounts.set(baseSlug, 0);
+  return baseSlug;
+}
+
 export function generateToc(markdown: string): TocEntry[] {
   // 1. Strip YAML Frontmatter (to avoid parsing headings inside it)
   let text = markdown.replace(/^---\n[\s\S]*?\n---\n/, '');
@@ -22,30 +51,13 @@ export function generateToc(markdown: string): TocEntry[] {
     const depth = match[1].length;
     const rawTitle = match[2];
 
-    // Clean inline markdown formatting for the title
-    const title = rawTitle
-      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')     // Remove links -> [Text](url)
-      .replace(/[*_]{1,3}(.*?)[*_]{1,3}/g, '$1')   // Remove bold/italic -> **Text**
-      .replace(/`([^`]+)`/g, '$1')                 // Remove inline code -> `code`
-      .replace(/<[^>]+>/g, '')                     // Remove raw HTML tags
-      .trim();
-
-    // Generate GitHub-style i18n-friendly slug
-    // \p{L} = letters from any language, \p{N} = numbers from any language
-    let slug = title
-      .toLowerCase()
-      .replace(/[^\p{L}\p{N}\s-]/gu, '') 
-      .trim()
-      .replace(/\s+/g, '-');
-
-    // Handle duplicate slugs (e.g., turning the second instance into #my-heading-1)
-    if (slugCounts.has(slug)) {
-      const count = slugCounts.get(slug)! + 1;
-      slugCounts.set(slug, count);
-      slug = `${slug}-${count}`;
-    } else {
-      slugCounts.set(slug, 0);
+    const title = sanitizeHeadingTitle(rawTitle);
+    const baseSlug = slugifyHeadingTitle(title);
+    if (!baseSlug) {
+      continue;
     }
+
+    const slug = makeUniqueSlug(baseSlug, slugCounts);
 
     headings.push({ depth, title, url: `#${slug}` });
   }

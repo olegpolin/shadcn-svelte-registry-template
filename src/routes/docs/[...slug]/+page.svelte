@@ -2,10 +2,36 @@
   import type { PageProps } from './$types';
   import { Badge } from '$lib/registry/ui/badge';
   import DocsToc from '$lib/components/docs-toc.svelte';
+  import { slugifyHeadingTitle } from '$lib/utils/toc';
   import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
 
   let { data }: PageProps = $props();
   let Markdown = $derived(data.markdown);
+  let markdownContainer = $state<HTMLElement | null>(null);
+
+  function syncHeadingIds(root: HTMLElement) {
+    const headings = root.querySelectorAll<HTMLElement>('h1, h2, h3, h4, h5, h6');
+    const slugCounts = new Map<string, number>();
+
+    for (const heading of headings) {
+      const baseSlug = slugifyHeadingTitle(heading.textContent?.trim() ?? '');
+      if (!baseSlug) {
+        continue;
+      }
+
+      const count = slugCounts.get(baseSlug) ?? 0;
+      slugCounts.set(baseSlug, count + 1);
+      heading.id = count === 0 ? baseSlug : `${baseSlug}-${count}`;
+    }
+  }
+
+  $effect(() => {
+    data.slug;
+
+    if (markdownContainer) {
+      syncHeadingIds(markdownContainer);
+    }
+  });
 </script>
 
 <div class="flex flex-row-reverse items-stretch text-[1.05rem] sm:text-[15px] xl:w-full pt-4">
@@ -44,7 +70,7 @@
           </div>
         {/if}
       </div>
-      <div class={[data.slug !== 'components' && 'prose-docs ', 'w-full flex-1 mt-8']}>
+      <div class={[data.slug !== 'components' && 'prose-docs ', 'w-full flex-1 mt-8']} bind:this={markdownContainer}>
 				<Markdown />
 			</div>
     </div>
