@@ -136,11 +136,6 @@
     @apply mt-10 scroll-m-28 text-xl font-medium tracking-tight first:mt-0 lg:mt-16;
   }
 
-  /* mirrors: [&+]*:[code]:text-xl */
-  & h2 + * code {
-    @apply text-xl;
-  }
-
   /* mirrors spacing overrides in current docs components */
   & h2 + .steps {
     @apply mt-0!;
