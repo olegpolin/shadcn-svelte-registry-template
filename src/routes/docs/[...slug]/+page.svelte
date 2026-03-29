@@ -44,7 +44,7 @@
           </div>
         {/if}
       </div>
-      <div class={[data.slug !== 'components' && 'prose-docs ', 'w-full flex-1 mt-4']}>
+      <div class={[data.slug !== 'components' && 'prose-docs ', 'w-full flex-1 mt-8']}>
 				<Markdown />
 			</div>
     </div>
