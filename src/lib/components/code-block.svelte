@@ -6,9 +6,11 @@
 
 	let {
 		source,
+		class: className,
 		children
 	}: {
 		source?: string;
+		class?: string;
 		children?: Snippet;
 	} = $props();
 
@@ -43,7 +45,7 @@
 
 <div
 	data-slot="code"
-	class="relative overflow-hidden **:data-rehype-pretty-code-figure:m-0! **:data-rehype-pretty-code-figure:rounded-t-none **:data-rehype-pretty-code-figure:border-t [&_pre]:max-h-100"
+	class={['relative overflow-hidden rounded-lg **:data-rehype-pretty-code-figure:m-0! **:data-rehype-pretty-code-figure:rounded-t-none [&_pre]:max-h-100', className]}
 >
 	{#if children}
 		{@render children()}
@@ -62,7 +64,7 @@
 				<CopyIcon />
 			{/if}
 		</Button>
-		<figure data-rehype-pretty-code-figure class="border-t">
+		<figure data-rehype-pretty-code-figure>
 			<pre class="bg-muted/30 overflow-x-auto p-4 text-sm leading-relaxed"><code>{source}</code></pre>
 		</figure>
 	{/if}

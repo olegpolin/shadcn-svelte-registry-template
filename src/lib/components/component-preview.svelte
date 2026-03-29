@@ -71,7 +71,7 @@
 		>
 			<div
 				data-align={align}
-				class="preview flex min-h-112.5 w-full justify-center p-10 data-[align=center]:items-center data-[align=end]:items-end data-[align=start]:items-start"
+				class="preview flex min-h-112.5 w-full justify-center border-b p-10 data-[align=center]:items-center data-[align=end]:items-end data-[align=start]:items-start"
 			>
 				{#if example}
 					{@render example()}
@@ -80,6 +80,6 @@
 				{/if}
 			</div>
 		</div>
-		<CodeBlock source={previewSource} {children} />
+		<CodeBlock class="rounded-none" source={previewSource} {children} />
 	</div>
 </div>
