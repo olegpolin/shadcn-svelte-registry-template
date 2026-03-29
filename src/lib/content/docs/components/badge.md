@@ -19,6 +19,7 @@ description: Displays a badge or a component that looks like a badge.
 
 <CodeBlock name="badge-usage" />
 
+
 ### Link
 
 You can use the `badgeVariants` helper to create a link that looks like a badge.
