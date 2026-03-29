@@ -133,7 +133,7 @@
   }
 
   & h2 {
-    @apply mt-10 scroll-m-28 text-xl font-medium tracking-tight first:mt-0 lg:mt-16;
+    @apply mt-10 mb-6 scroll-m-28 text-xl font-medium tracking-tight first:mt-0 lg:mt-16;
   }
 
   /* mirrors spacing overrides in current docs components */
