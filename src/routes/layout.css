@@ -179,7 +179,7 @@
   }
 
   & p {
-    @apply leading-[1.65rem];
+    @apply leading-[1.65rem] mb-4;
   }
 
   & p:not(:first-child) {
