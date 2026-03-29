@@ -44,7 +44,7 @@
           </div>
         {/if}
       </div>
-      <div class="w-full flex-1 mt-4">
+      <div class="prose-docs w-full flex-1 mt-4">
 				<Markdown />
 			</div>
     </div>

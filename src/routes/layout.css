@@ -124,6 +124,161 @@
   }
 }
 
+@utility prose-docs {
+  /* base wrapper if you want a consistent text color */
+  @apply text-foreground;
+
+  & h1 {
+    @apply mt-2 scroll-m-28 text-3xl font-bold tracking-tight;
+  }
+
+  & h2 {
+    @apply mt-10 scroll-m-28 text-xl font-medium tracking-tight first:mt-0 lg:mt-16;
+  }
+
+  /* mirrors: [&+]*:[code]:text-xl */
+  & h2 + * code {
+    @apply text-xl;
+  }
+
+  /* mirrors spacing overrides in current docs components */
+  & h2 + .steps {
+    @apply mt-0!;
+  }
+
+  & h2 + .steps > h3 {
+    @apply mt-4!;
+  }
+
+  & h2 + h3 {
+    @apply mt-6!;
+  }
+
+  & h2 + p {
+    @apply mt-4!;
+  }
+
+  & h3 {
+    @apply mt-12 scroll-m-28 text-lg font-medium tracking-tight;
+  }
+
+  & h3 + p {
+    @apply mt-4!;
+  }
+
+  /* mirrors: *:[code]:text-xl */
+  & h3 code {
+    @apply text-xl;
+  }
+
+  & h4 {
+    @apply mt-8 scroll-m-28 text-base font-medium tracking-tight;
+  }
+
+  & h5 {
+    @apply mt-8 scroll-m-28 text-base font-medium tracking-tight;
+  }
+
+  & h6 {
+    @apply mt-8 scroll-m-28 text-base font-medium tracking-tight;
+  }
+
+  & p {
+    @apply leading-[1.65rem];
+  }
+
+  & p:not(:first-child) {
+    @apply mt-6;
+  }
+
+  & a {
+    @apply font-medium underline underline-offset-4;
+  }
+
+  & strong {
+    @apply font-semibold;
+  }
+
+  & ul {
+    @apply my-6 ms-6 list-disc;
+  }
+
+  & ol {
+    @apply my-6 ms-6 list-decimal;
+  }
+
+  & li {
+    @apply mt-2;
+  }
+
+  & blockquote {
+    @apply mt-6 border-s-2 ps-6 italic;
+  }
+
+  & hr {
+    @apply my-4 md:my-8;
+  }
+
+  & img {
+    @apply rounded-md;
+  }
+
+  & figcaption {
+    @apply flex items-center gap-2;
+  }
+
+  & figcaption svg {
+    @apply size-4 opacity-70;
+  }
+
+  /* table styles (without custom wrapper component) */
+  & table {
+    @apply relative my-6 w-full overflow-hidden rounded-lg border border-none text-sm;
+  }
+
+  & tr {
+    @apply m-0 border-b;
+  }
+
+  & tbody tr:last-child {
+    @apply border-b-0;
+  }
+
+  & th {
+    @apply px-4 py-2 text-start font-bold;
+  }
+
+  & th[align="center"] {
+    @apply text-center;
+  }
+
+  & th[align="right"] {
+    @apply text-end;
+  }
+
+  & td {
+    @apply px-4 py-2 text-start whitespace-nowrap;
+  }
+
+  & td[align="center"] {
+    @apply text-center;
+  }
+
+  & td[align="right"] {
+    @apply text-end;
+  }
+
+  /* inline code */
+  & code:not(pre code) {
+    @apply bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] outline-none;
+  }
+
+  /* fenced code block container */
+  & pre {
+    @apply no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none;
+  }
+}
+
 @font-face {
   font-family: 'Geist';
   font-style: normal;
