@@ -26,9 +26,17 @@ description: Displays a form input field or a component that looks like an input
 
 <ComponentPreview name="input-demo" />
 
+### File
+
+<ComponentPreview name="input-file" />
+
 ### Disabled
 
 <ComponentPreview name="input-disabled" />
+
+### With Label
+
+<ComponentPreview name="input-with-label" />
 
 ### With Button
 
