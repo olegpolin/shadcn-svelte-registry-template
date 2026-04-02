@@ -34,6 +34,45 @@
       ]
     },
     {
+      "name": "card",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/card/card-action.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/card/card-content.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/card/card-description.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/card/card-footer.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/card/card-header.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/card/card-title.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/card/card.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/card/index.ts"
+        }
+      ]
+    },
+    {
       "name": "checkbox",
       "type": "registry:ui",
       "registryDependencies": [],
