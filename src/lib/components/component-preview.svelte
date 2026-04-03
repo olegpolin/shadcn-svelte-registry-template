@@ -60,7 +60,7 @@
 {/snippet}
 
 <div
-	class={cn("group relative mt-4 mb-12 flex flex-col gap-2 rounded-lg border", className)}
+	class={cn("no-prose-docs group relative mt-4 mb-12 flex flex-col gap-2 rounded-lg border", className)}
 	{...restProps}
 >
 	<div>

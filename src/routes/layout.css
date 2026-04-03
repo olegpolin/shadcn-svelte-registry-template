@@ -133,131 +133,131 @@
   /* base wrapper if you want a consistent text color */
   @apply text-foreground;
 
-  & h1 {
+  & h1:not(:where(.no-prose-docs *)) {
     @apply mt-2 scroll-m-28 text-3xl font-bold tracking-tight;
   }
 
-  & h2 {
+  & h2:not(:where(.no-prose-docs *)) {
     @apply mt-10 mb-6 scroll-m-28 text-xl font-medium tracking-tight first:mt-0 lg:mt-16;
   }
 
   /* mirrors spacing overrides in current docs components */
-  & h2 + .steps {
+  & h2:not(:where(.no-prose-docs *)) + .steps {
     @apply mt-0!;
   }
 
-  & h2 + .steps > h3 {
+  & h2:not(:where(.no-prose-docs *)) + .steps > h3:not(:where(.no-prose-docs *)) {
     @apply mt-4!;
   }
 
-  & h2 + h3 {
+  & h2:not(:where(.no-prose-docs *)) + h3:not(:where(.no-prose-docs *)) {
     @apply mt-6!;
   }
 
-  & h2 + p {
+  & h2:not(:where(.no-prose-docs *)) + p:not(:where(.no-prose-docs *)) {
     @apply mt-4!;
   }
 
-  & h3 {
+  & h3:not(:where(.no-prose-docs *)) {
     @apply mt-12 scroll-m-28 text-lg font-medium tracking-tight;
   }
 
-  & h3 + p {
+  & h3:not(:where(.no-prose-docs *)) + p:not(:where(.no-prose-docs *)) {
     @apply mt-4!;
   }
 
   /* mirrors: *:[code]:text-xl */
-  & h3 code {
+  & h3:not(:where(.no-prose-docs *)) code:not(:where(.no-prose-docs *)) {
     @apply text-xl;
   }
 
-  & h4 {
+  & h4:not(:where(.no-prose-docs *)) {
     @apply mt-8 scroll-m-28 text-base font-medium tracking-tight;
   }
 
-  & h5 {
+  & h5:not(:where(.no-prose-docs *)) {
     @apply mt-8 scroll-m-28 text-base font-medium tracking-tight;
   }
 
-  & h6 {
+  & h6:not(:where(.no-prose-docs *)) {
     @apply mt-8 scroll-m-28 text-base font-medium tracking-tight;
   }
 
-  & p {
+  & p:not(:where(.no-prose-docs *)) {
     @apply leading-[1.65rem] mb-4;
   }
 
-  & p:not(:first-child) {
+  & p:not(:first-child):not(:where(.no-prose-docs *)) {
     @apply mt-6;
   }
 
-  & a {
+  & a:not(:where(.no-prose-docs *)) {
     @apply font-medium underline underline-offset-4;
   }
 
-  & strong {
+  & strong:not(:where(.no-prose-docs *)) {
     @apply font-semibold;
   }
 
-  & blockquote {
+  & blockquote:not(:where(.no-prose-docs *)) {
     @apply mt-6 border-s-2 ps-6 italic;
   }
 
-  & hr {
+  & hr:not(:where(.no-prose-docs *)) {
     @apply my-4 md:my-8;
   }
 
-  & img {
+  & img:not(:where(.no-prose-docs *)) {
     @apply rounded-md;
   }
 
-  & figcaption {
+  & figcaption:not(:where(.no-prose-docs *)) {
     @apply flex items-center gap-2;
   }
 
-  & figcaption svg {
+  & figcaption:not(:where(.no-prose-docs *)) svg:not(:where(.no-prose-docs *)) {
     @apply size-4 opacity-70;
   }
 
   /* table styles (without custom wrapper component) */
-  & table {
+  & table:not(:where(.no-prose-docs *)) {
     @apply relative my-6 w-full overflow-hidden rounded-lg border border-none text-sm;
   }
 
-  & tr {
+  & tr:not(:where(.no-prose-docs *)) {
     @apply m-0 border-b;
   }
 
-  & tbody tr:last-child {
+  & tbody:not(:where(.no-prose-docs *)) tr:last-child:not(:where(.no-prose-docs *)) {
     @apply border-b-0;
   }
 
-  & th {
+  & th:not(:where(.no-prose-docs *)) {
     @apply px-4 py-2 text-start font-bold;
   }
 
-  & th[align="center"] {
+  & th[align="center"]:not(:where(.no-prose-docs *)) {
     @apply text-center;
   }
 
-  & th[align="right"] {
+  & th[align="right"]:not(:where(.no-prose-docs *)) {
     @apply text-end;
   }
 
-  & td {
+  & td:not(:where(.no-prose-docs *)) {
     @apply px-4 py-2 text-start whitespace-nowrap;
   }
 
-  & td[align="center"] {
+  & td[align="center"]:not(:where(.no-prose-docs *)) {
     @apply text-center;
   }
 
-  & td[align="right"] {
+  & td[align="right"]:not(:where(.no-prose-docs *)) {
     @apply text-end;
   }
 
   /* inline code */
-  & code:not(pre code) {
+  & code:not(pre code):not(:where(.no-prose-docs *)) {
     @apply bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] outline-none;
   }
 
