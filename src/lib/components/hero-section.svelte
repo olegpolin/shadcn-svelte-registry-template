@@ -9,10 +9,12 @@
     primaryCta: {
       text: string;
       href: string;
+      openInNewTab?: boolean;
     };
     secondaryCta: {
       text: string;
       href: string;
+      openInNewTab?: boolean;
     };
   }
   let { title, description, primaryCta, secondaryCta }: Props = $props();
@@ -28,8 +30,12 @@
     <h1 class="max-w-4xl text-4xl xl:text-5xl text-balance font-semibold tracking-tight xl:tracking-tighter lg:leading-[1.1]">{title}</h1>
     <p class="max-w-3xl sm:text-lg text-balance">{description}</p>
     <div class="w-full flex flex-row items-center justify-center gap-2 pt-2">
-      <Button size="sm" href={primaryCta.href}>{primaryCta.text}</Button>
-      <Button variant="ghost" size="sm" href={secondaryCta.href}>{secondaryCta.text}</Button>
+      <Button size="sm" href={primaryCta.href} target={primaryCta.openInNewTab ? '_blank' : undefined} rel={primaryCta.openInNewTab ? 'noopener noreferrer' : undefined}>
+        {primaryCta.text}
+      </Button>
+      <Button variant="ghost" size="sm" href={secondaryCta.href} target={secondaryCta.openInNewTab ? '_blank' : undefined} rel={secondaryCta.openInNewTab ? 'noopener noreferrer' : undefined}>
+        {secondaryCta.text}
+      </Button>
     </div>
   </div>
 </div>
