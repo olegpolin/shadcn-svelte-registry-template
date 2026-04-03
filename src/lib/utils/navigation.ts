@@ -21,10 +21,6 @@ export const headerLinks = [
     href:'/charts/area'
   },
   {
-    title: 'Themes',
-    href: '/themes'
-  },
-  {
     title: 'Colors',
     href: '/colors'
   }
