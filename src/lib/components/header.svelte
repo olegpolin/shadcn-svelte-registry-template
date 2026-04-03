@@ -59,7 +59,7 @@
       <span class="flex items-center text-lg font-medium">Menu</span>
     </Popover.Trigger>
     <Popover.Content
-      class="bg-background/50 h-(--bits-popover-content-available-height) w-(--bits-popover-content-available-width) overflow-y-auto rounded-none border-none p-0 shadow-none backdrop-blur"
+      class="no-scrollbar bg-background/90 h-(--bits-popover-content-available-height) w-(--bits-popover-content-available-width) overflow-y-auto rounded-none border-none p-0 shadow-none backdrop-blur"
       align="start"
       side="bottom"
       preventScroll
