@@ -13,7 +13,7 @@ description: Displays rich content in a portal, triggered by a button.
 
 ## Installation
 
-<CodeBlock source={`\n${registryAddCommandPrefix}popover.json`} />
+<CodeBlock source={`${registryAddCommandPrefix}popover.json`} />
 
 ## Usage
 

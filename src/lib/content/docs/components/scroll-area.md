@@ -13,7 +13,7 @@ description: Augments native scroll functionality for custom, cross-browser styl
 
 ## Installation
 
-<CodeBlock source={`\n${registryAddCommandPrefix}scroll-area.json`} />
+<CodeBlock source={`${registryAddCommandPrefix}scroll-area.json`} />
 
 ## Usage
 

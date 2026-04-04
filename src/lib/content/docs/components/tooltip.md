@@ -13,7 +13,7 @@ description: A popup that displays information related to an element when the el
 
 ## Installation
 
-<CodeBlock source={`\n${registryAddCommandPrefix}tooltip.json`} />
+<CodeBlock source={`${registryAddCommandPrefix}tooltip.json`} />
 
 ## Usage
 

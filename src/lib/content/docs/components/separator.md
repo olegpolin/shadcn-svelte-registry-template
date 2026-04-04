@@ -13,7 +13,7 @@ description: Visually or semantically separates content.
 
 ## Installation
 
-<CodeBlock source={`\n${registryAddCommandPrefix}separator.json`} />
+<CodeBlock source={`${registryAddCommandPrefix}separator.json`} />
 
 ## Usage
 

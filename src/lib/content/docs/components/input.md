@@ -13,7 +13,7 @@ description: Displays a form input field or a component that looks like an input
 
 ## Installation
 
-<CodeBlock source={`\n${registryAddCommandPrefix}input.json`} />
+<CodeBlock source={`${registryAddCommandPrefix}input.json`} />
 
 ## Usage
 

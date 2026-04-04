@@ -13,7 +13,7 @@ description: A set of layered sections of content—known as tab panels—that a
 
 ## Installation
 
-<CodeBlock source={`\n${registryAddCommandPrefix}tabs.json`} />
+<CodeBlock source={`${registryAddCommandPrefix}tabs.json`} />
 
 ## Usage
 

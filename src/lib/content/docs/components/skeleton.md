@@ -13,7 +13,7 @@ description: Use to show a placeholder while content is loading.
 
 ## Installation
 
-<CodeBlock source={`\n${registryAddCommandPrefix}skeleton.json`} />
+<CodeBlock source={`${registryAddCommandPrefix}skeleton.json`} />
 
 ## Usage
 

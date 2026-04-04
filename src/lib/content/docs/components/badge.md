@@ -13,7 +13,7 @@ description: Displays a badge or a component that looks like a badge.
 
 ## Installation
 
-<CodeBlock source={`\n${registryAddCommandPrefix}badge.json`} />
+<CodeBlock source={`${registryAddCommandPrefix}badge.json`} />
 
 ## Usage
 

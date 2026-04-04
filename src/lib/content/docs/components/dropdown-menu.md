@@ -13,7 +13,7 @@ description: Displays a menu to the user — such as a set of actions or functio
 
 ## Installation
 
-<CodeBlock source={`\n${registryAddCommandPrefix}dropdown-menu.json`} />
+<CodeBlock source={`${registryAddCommandPrefix}dropdown-menu.json`} />
 
 ## Usage
 

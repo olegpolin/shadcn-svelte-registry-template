@@ -13,7 +13,7 @@ description: Extends the Dialog component to display content that complements th
 
 ## Installation
 
-<CodeBlock source={`\n${registryAddCommandPrefix}sheet.json`} />
+<CodeBlock source={`${registryAddCommandPrefix}sheet.json`} />
 
 ## Usage
 

@@ -13,7 +13,7 @@ description: Renders an accessible label associated with controls.
 
 ## Installation
 
-<CodeBlock source={`\n${registryAddCommandPrefix}label.json`} />
+<CodeBlock source={`${registryAddCommandPrefix}label.json`} />
 
 ## Usage
 

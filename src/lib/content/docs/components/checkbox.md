@@ -13,7 +13,7 @@ description: A control that allows the user to toggle between checked and not ch
 
 ## Installation
 
-<CodeBlock source={`\n${registryAddCommandPrefix}checkbox.json`} />
+<CodeBlock source={`${registryAddCommandPrefix}checkbox.json`} />
 
 ## Usage
 

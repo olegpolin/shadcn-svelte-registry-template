@@ -13,7 +13,7 @@ description: Displays a button or a component that looks like a button.
 
 ## Installation
 
-<CodeBlock source={`\n${registryAddCommandPrefix}button.json`} />
+<CodeBlock source={`${registryAddCommandPrefix}button.json`} />
 
 ## Usage
 

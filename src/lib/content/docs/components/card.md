@@ -13,7 +13,7 @@ description: Displays a card with header, content, and footer.
 
 ## Installation
 
-<CodeBlock source={`\n${registryAddCommandPrefix}card.json`} />
+<CodeBlock source={`${registryAddCommandPrefix}card.json`} />
 
 ## Usage
 

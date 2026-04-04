@@ -13,7 +13,7 @@ description: A collection of links for navigating websites.
 
 ## Installation
 
-<CodeBlock source={`\n${registryAddCommandPrefix}navigation-menu.json`} />
+<CodeBlock source={`${registryAddCommandPrefix}navigation-menu.json`} />
 
 ## Usage
 

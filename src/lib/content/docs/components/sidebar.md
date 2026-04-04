@@ -13,7 +13,7 @@ description: A composable, themeable and customizable sidebar component.
 
 ## Installation
 
-<CodeBlock source={`\n${registryAddCommandPrefix}sidebar.json`} />
+<CodeBlock source={`${registryAddCommandPrefix}sidebar.json`} />
 
 ## Usage
 
