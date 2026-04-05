@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { PageProps } from './$types';
+  import Seo from '$lib/components/seo.svelte';
   import { Badge } from '$lib/registry/ui/badge';
   import DocsToc from '$lib/components/docs-toc.svelte';
   import { slugifyHeadingTitle } from '$lib/utils/toc';
@@ -33,6 +34,11 @@
     }
   });
 </script>
+
+<Seo
+  title={data.meta.title}
+  description={data.meta.description || 'Documentation for shadcn-svelte registry template.'}
+/>
 
 <div class="flex flex-row-reverse items-stretch text-[1.05rem] sm:text-[15px] xl:w-full pt-4">
   <div class="sticky top-14.25 z-30 ms-auto hidden h-[calc(100svh-1.5rem)] xl:h-[calc(100svh-4rem)] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
