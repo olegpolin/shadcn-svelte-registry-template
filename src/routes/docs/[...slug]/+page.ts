@@ -1,6 +1,6 @@
 export const prerender = true;
 
-import type { PageLoad } from './$types';
+import type { EntryGenerator, PageLoad } from './$types';
 import { error } from '@sveltejs/kit';
 import { generateToc } from '$lib/utils/toc';
 
@@ -15,11 +15,18 @@ const rawModules = import.meta.glob('../../../lib/content/docs/**/*.md', {
   import: 'default'
 });
 
+export const entries: EntryGenerator = () => {
+  return Object.keys(modules).map((filePath) => {
+    const slug = filePath
+      .replace('../../../lib/content/docs/', '')
+      .replace(/\.md$/, '');
+
+    return { slug: slug === 'index' ? '' : slug };
+  });
+};
+
 export const load: PageLoad = async ({ params }) => {
-  let path = 'index';
-  if (params.slug.length > 0) {
-    path = params.slug;
-  }
+  const path = params.slug && params.slug.length > 0 ? params.slug : 'index';
   const filePath = `../../../lib/content/docs/${path}.md`;
   try {
     if (!modules[filePath] || !rawModules[filePath]) {
