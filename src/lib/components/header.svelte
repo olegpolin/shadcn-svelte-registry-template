@@ -84,7 +84,7 @@
       <NavigationMenu.Item>
         <NavigationMenu.Link>
           {#snippet child()}
-            <Button variant="ghost" size="icon-sm" href="/">
+            <Button variant="ghost" size="icon-sm" href="/" aria-label="Home">
               <Logo />
             </Button>
           {/snippet}
@@ -104,7 +104,7 @@
   </NavigationMenu.Root>
 
   <div class="flex flex-row items-center gap-4">
-    <Button variant="ghost" size="icon-sm" href="https://github.com/olegpolin/shadcn-svelte-registry-template" target="_blank" rel="noopener noreferrer">
+    <Button variant="ghost" size="icon-sm" href="https://github.com/olegpolin/shadcn-svelte-registry-template" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
       <GitHubIcon />
     </Button>
     <Separator class="h-4" orientation="vertical" />
