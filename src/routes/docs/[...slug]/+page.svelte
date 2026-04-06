@@ -40,7 +40,7 @@
   description={data.meta.description || 'Documentation for shadcn-svelte registry template.'}
 />
 
-<div class="flex flex-row-reverse items-stretch text-[1.05rem] sm:text-[15px] xl:w-full pt-4">
+<div class="min-w-0 flex flex-row-reverse items-stretch text-[1.05rem] sm:text-[15px] xl:w-full pt-4">
   <div class="sticky top-14.25 z-30 ms-auto hidden h-[calc(100svh-1.5rem)] xl:h-[calc(100svh-4rem)] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
     {#if data.toc.length}
 			<div class="no-scrollbar overflow-y-auto px-8 pt-4">
