@@ -271,6 +271,21 @@
       ]
     },
     {
+      "name": "progress",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/progress/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/progress/progress.svelte"
+        }
+      ]
+    },
+    {
       "name": "scroll-area",
       "type": "registry:ui",
       "registryDependencies": [],
