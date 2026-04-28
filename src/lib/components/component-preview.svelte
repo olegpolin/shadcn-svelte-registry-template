@@ -1,12 +1,12 @@
 <script lang="ts">
   import type { Component, Snippet } from 'svelte';
   import type { HTMLAttributes } from 'svelte/elements';
-  import { getContext } from 'svelte';
+  import { page } from '$app/state';
   import CodeBlock from '$lib/components/code-block.svelte';
   import { cn } from '$lib/utils';
   import { getRegistryExampleSource } from '$lib/utils/registry-sources';
 
-  const exampleComponents = getContext<Record<string, Component>>('exampleComponents') ?? {};
+  const exampleComponents = $derived((page.data.exampleComponents ?? {}) as Record<string, Component>);
 
   let {
     class: className,

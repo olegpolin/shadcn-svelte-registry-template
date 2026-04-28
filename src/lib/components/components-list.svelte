@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { getContext } from 'svelte';
+  import { page } from '$app/state';
   import type { ComponentLink } from '$lib/utils/navigation';
 
-  const componentLinks = getContext<ComponentLink[]>('componentLinks') ?? [];
+  const componentLinks = $derived((page.data.componentLinks ?? []) as ComponentLink[]);
 </script>
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 lg:gap-x-16 lg:gap-y-6 xl:gap-x-20">
