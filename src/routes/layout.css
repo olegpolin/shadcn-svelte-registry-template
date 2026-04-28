@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import '@fontsource-variable/geist';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -109,7 +110,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --font-sans: 'Geist', sans-serif;
+  --font-sans: 'Geist Variable', sans-serif;
 }
 
 @layer base {
@@ -183,13 +184,6 @@
   & pre {
     @apply no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none;
   }
-}
-
-@font-face {
-  font-family: 'Geist';
-  font-style: normal;
-  font-display: swap;
-  src: url('/fonts/geist.woff2') format('woff2');
 }
 
 @utility no-scrollbar {
