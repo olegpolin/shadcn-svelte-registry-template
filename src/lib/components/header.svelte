@@ -5,7 +5,7 @@
   import { Button, buttonVariants } from '$lib/registry/ui/button';
   import { Separator } from '$lib/registry/ui/separator';
   import { userPrefersMode } from 'mode-watcher';
-  import { headerLinks, sidebarNavLinks } from '$lib/utils/navigation';
+  import { headerLinks, type SidebarNavGroup } from '$lib/utils/navigation';
   import Logo from '$lib/assets/logo.svelte';
   import GitHubIcon from '$lib/assets/icons/github-icon.svelte';
   import ModeSwitcherIcon from '$lib/assets/icons/mode-switcher-icon.svelte';
@@ -13,7 +13,9 @@
   import MoonIcon from '@lucide/svelte/icons/moon';
   import MonitorIcon from '@lucide/svelte/icons/monitor';
 
-  const mobileNavLinks = [
+  let { sidebarNavLinks }: { sidebarNavLinks: SidebarNavGroup[] } = $props();
+
+  const mobileNavLinks = $derived([
     {
       title: 'Menu',
       links: [
@@ -25,7 +27,7 @@
       ]
     },
     ...sidebarNavLinks
-  ];
+  ]);
 
   let mobileMenuOpen = $state(false);
 </script>

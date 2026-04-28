@@ -1,18 +1,12 @@
 <script lang="ts">
   import type { Component, Snippet } from 'svelte';
   import type { HTMLAttributes } from 'svelte/elements';
+  import { getContext } from 'svelte';
   import CodeBlock from '$lib/components/code-block.svelte';
   import { cn } from '$lib/utils';
   import { getRegistryExampleSource } from '$lib/utils/registry-sources';
 
-  const registryExampleModules = import.meta.glob('/src/lib/registry/examples/*.svelte', {
-    eager: true,
-    import: 'default'
-  }) as Record<string, Component>;
-
-  const getRegistryExample = (exampleName: string): Component | undefined => {
-    return registryExampleModules[`/src/lib/registry/examples/${exampleName}.svelte`];
-  };
+  const exampleComponents = getContext<Record<string, Component>>('exampleComponents') ?? {};
 
   let {
     class: className,
@@ -30,8 +24,7 @@
     name: string;
   } = $props();
 
-  let registryExample = $derived(getRegistryExample(name));
-  let previewComponent = $derived(component ?? registryExample);
+  let previewComponent = $derived(component ?? exampleComponents[name]);
   let previewSource = $derived(getRegistryExampleSource(name));
 </script>
 

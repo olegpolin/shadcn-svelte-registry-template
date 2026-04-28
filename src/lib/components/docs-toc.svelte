@@ -19,13 +19,13 @@
 				}
 			}
 
+			// Default to first item when no heading has been intersected yet
+			if (activeId === null && itemIds.length > 0) {
+				activeId = itemIds[0];
+			}
+
 			return () => {
-				for (const id of itemIds ?? []) {
-					const element = document.getElementById(id);
-					if (element) {
-						observer.unobserve(element);
-					}
-				}
+				observer.disconnect();
 			};
 		});
 

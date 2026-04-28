@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { PageProps } from './$types';
+  import { setContext } from 'svelte';
   import Seo from '$lib/components/seo.svelte';
   import { Badge } from '$lib/registry/ui/badge';
   import DocsToc from '$lib/components/docs-toc.svelte';
@@ -9,6 +10,12 @@
   let { data }: PageProps = $props();
   let Markdown = $derived(data.markdown);
   let markdownContainer = $state<HTMLElement | null>(null);
+
+  // Provide example components and componentLinks to child components via context.
+  // This is used by ComponentPreview (rendered inside mdsvex markdown)
+  // to resolve example components without an eager import.meta.glob.
+  setContext('exampleComponents', data.exampleComponents);
+  setContext('componentLinks', data.componentLinks);
 
   function syncHeadingIds(root: HTMLElement) {
     const headings = root.querySelectorAll<HTMLElement>('h1, h2, h3, h4, h5, h6');

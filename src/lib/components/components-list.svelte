@@ -1,5 +1,8 @@
 <script lang="ts">
-  import { componentLinks } from "$lib/utils/navigation";
+  import { getContext } from 'svelte';
+  import type { ComponentLink } from '$lib/utils/navigation';
+
+  const componentLinks = getContext<ComponentLink[]>('componentLinks') ?? [];
 </script>
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 lg:gap-x-16 lg:gap-y-6 xl:gap-x-20">

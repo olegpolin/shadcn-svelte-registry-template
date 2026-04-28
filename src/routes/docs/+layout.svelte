@@ -2,9 +2,9 @@
   import type { LayoutProps } from './$types';
   import { page } from '$app/state';
   import * as Sidebar from '$lib/registry/ui/sidebar';
-  import { sidebarNavLinks } from '$lib/utils/navigation';
 
-  let { children }: LayoutProps = $props();
+  let { children, data }: LayoutProps = $props();
+  let sidebarNavLinks = $derived(data.sidebarNavLinks);
 </script>
 
 <Sidebar.Provider class="px-2">
