@@ -1,9 +1,10 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
+  import { onDestroy } from 'svelte';
+  import { page } from '$app/state';
   import { Button } from '$lib/registry/ui/button';
   import CopyIcon from '@lucide/svelte/icons/copy';
   import CheckIcon from '@lucide/svelte/icons/check';
-  import { getRegistryExampleSource } from '$lib/utils/registry-sources';
 
   let {
     source,
@@ -17,10 +18,9 @@
     children?: Snippet;
   } = $props();
 
-  let resolvedSource = $derived(source ?? (name ? getRegistryExampleSource(name) : undefined));
-  let displaySource = $derived(
-    resolvedSource?.replaceAll('$lib/registry/ui', '$lib/components/ui')
-  );
+  const registryExampleSources = $derived(page.data.exampleSources as Record<string, string> | undefined);
+  let resolvedSource = $derived(source ?? (name ? registryExampleSources?.[name] : undefined));
+  let displaySource = $derived(resolvedSource?.replaceAll('$lib/registry/ui', '$lib/components/ui'));
   let copySource = $derived(displaySource?.replace(/^\n+/, ''));
   let showCommandTopLine = $derived(copySource?.trimStart().startsWith('npx shadcn-svelte') ?? false);
   let renderedSource = $derived(showCommandTopLine && copySource ? `\n${copySource}` : copySource);
@@ -45,12 +45,10 @@
     }, 2000);
   };
 
-  $effect(() => {
-    return () => {
-      if (copyResetTimer) {
-        clearTimeout(copyResetTimer);
-      }
-    };
+  onDestroy(() => {
+    if (copyResetTimer) {
+      clearTimeout(copyResetTimer);
+    }
   });
 </script>
 

@@ -4,6 +4,14 @@ export interface TocEntry {
   items: TocEntry[];
 }
 
+type StackEntry = {
+  depth: number;
+  entry: TocEntry;
+};
+
+const headingRegex = /^(#{1,6})\s+(.+?)(?:\s+#+)?$/;
+const fenceRegex = /^\s*(```|~~~)/;
+
 export function sanitizeHeadingTitle(rawTitle: string): string {
   return rawTitle
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
@@ -22,72 +30,82 @@ export function slugifyHeadingTitle(title: string): string {
     .replace(/\s+/g, '-');
 }
 
-function makeUniqueSlug(baseSlug: string, slugCounts: Map<string, number>): string {
-  if (slugCounts.has(baseSlug)) {
-    const count = slugCounts.get(baseSlug)! + 1;
-    slugCounts.set(baseSlug, count);
-    return `${baseSlug}-${count}`;
-  }
+export function getUniqueHeadingSlug(baseSlug: string, slugCounts: Map<string, number>): string {
+  const count = slugCounts.get(baseSlug) ?? 0;
+  slugCounts.set(baseSlug, count + 1);
 
-  slugCounts.set(baseSlug, 0);
-  return baseSlug;
+  return count === 0 ? baseSlug : `${baseSlug}-${count}`;
 }
 
 export function generateToc(markdown: string): TocEntry[] {
-  // 1. Strip YAML Frontmatter (to avoid parsing headings inside it)
-  let text = markdown.replace(/^---\n[\s\S]*?\n---\n/, '');
-
-  // 2. Strip Code Blocks (to avoid false positive headings inside code)
-  text = text.replace(/```[\s\S]*?```/g, '');
-
-  // Regex to match ATX headings like "## Heading" (ignoring trailing hashes like "## Heading ##")
-  const headingRegex = /^(#{1,6})\s+(.+?)(?:\s+#+)?$/gm;
-  const headings: { depth: number; title: string; url: string }[] = [];
+  const toc: TocEntry[] = [];
+  const stack: StackEntry[] = [];
   const slugCounts = new Map<string, number>();
+  let index = 0;
+  let lineNumber = 0;
+  let inFrontmatter = false;
+  let inCodeFence = false;
 
-  // 3. Extract and sanitize headings
-  let match;
-  while ((match = headingRegex.exec(text)) !== null) {
-    const depth = match[1].length;
-    const rawTitle = match[2];
+  while (index <= markdown.length) {
+    const nextLineBreak = markdown.indexOf('\n', index);
+    const line =
+      nextLineBreak === -1
+        ? markdown.slice(index).replace(/\r$/, '')
+        : markdown.slice(index, nextLineBreak).replace(/\r$/, '');
 
-    const title = sanitizeHeadingTitle(rawTitle);
-    const baseSlug = slugifyHeadingTitle(title);
-    if (!baseSlug) {
+    index = nextLineBreak === -1 ? markdown.length + 1 : nextLineBreak + 1;
+
+    if (lineNumber === 0 && line.trim() === '---') {
+      inFrontmatter = true;
+      lineNumber += 1;
       continue;
     }
 
-    const slug = makeUniqueSlug(baseSlug, slugCounts);
-
-    headings.push({ depth, title, url: `#${slug}` });
-  }
-
-  // 4. Build the hierarchical Tree (Velite's default format)
-  const toc: TocEntry[] = [];
-  const stack: { depth: number; entry: TocEntry }[] = [];
-
-  for (const heading of headings) {
-    const entry: TocEntry = {
-      title: heading.title,
-      url: heading.url,
-      items: []
-    };
-
-    // Pop the stack until we find the parent (a heading with a lesser depth/higher hierarchy)
-    while (stack.length > 0 && stack[stack.length - 1].depth >= heading.depth) {
-      stack.pop();
+    if (inFrontmatter) {
+      if (line.trim() === '---') {
+        inFrontmatter = false;
+      }
+      lineNumber += 1;
+      continue;
     }
 
-    if (stack.length === 0) {
-      // Top-level heading
-      toc.push(entry);
-    } else {
-      // Attach as a nested item to the closest parent
-      stack[stack.length - 1].entry.items.push(entry);
+    if (fenceRegex.test(line)) {
+      inCodeFence = !inCodeFence;
+      lineNumber += 1;
+      continue;
     }
 
-    // Push current entry to the stack for subsequent nested children
-    stack.push({ depth: heading.depth, entry });
+    if (!inCodeFence) {
+      const match = headingRegex.exec(line);
+
+      if (match) {
+        const title = sanitizeHeadingTitle(match[2]);
+        const baseSlug = slugifyHeadingTitle(title);
+
+        if (baseSlug) {
+          const entry: TocEntry = {
+            title,
+            url: `#${getUniqueHeadingSlug(baseSlug, slugCounts)}`,
+            items: []
+          };
+          const depth = match[1].length;
+
+          while (stack.length > 0 && stack[stack.length - 1].depth >= depth) {
+            stack.pop();
+          }
+
+          if (stack.length === 0) {
+            toc.push(entry);
+          } else {
+            stack[stack.length - 1].entry.items.push(entry);
+          }
+
+          stack.push({ depth, entry });
+        }
+      }
+    }
+
+    lineNumber += 1;
   }
 
   return toc;

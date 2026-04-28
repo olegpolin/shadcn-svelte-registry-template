@@ -1,5 +1,9 @@
 import type { EntryGenerator, PageServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
+import {
+  extractRegistryExampleReferences,
+  getRegistryExampleSources
+} from '$lib/utils/docs-content.server';
 import { generateToc } from '$lib/utils/toc';
 
 type ModuleWithMetadata = {
@@ -12,21 +16,6 @@ const rawModules = import.meta.glob('/src/lib/content/docs/**/*.md', {
   query: '?raw',
   import: 'default'
 }) as Record<string, string>;
-
-/**
- * Extract ComponentPreview and CodeBlock `name` attributes from raw markdown.
- * These names are used by the client loader to dynamically import only the
- * needed example components, rather than eagerly bundling all of them.
- */
-function extractExampleNames(raw: string): string[] {
-  const nameRegex = /<(?:ComponentPreview|CodeBlock)\s[^>]*name=["']([^"']+)["']/g;
-  const names = new Set<string>();
-  let match;
-  while ((match = nameRegex.exec(raw)) !== null) {
-    names.add(match[1]);
-  }
-  return [...names];
-}
 
 export const entries: EntryGenerator = () => {
   return Object.keys(modules).map((filePath) => {
@@ -48,10 +37,13 @@ export const load: PageServerLoad = async ({ params }) => {
     error(404, 'Not Found');
   }
 
+  const { previewNames, sourceNames } = extractRegistryExampleReferences(raw);
+
   return {
     meta: mod.metadata,
     toc: generateToc(raw),
-    slug: params.slug,
-    exampleNames: extractExampleNames(raw)
+    slug: path,
+    previewNames,
+    exampleSources: getRegistryExampleSources(sourceNames)
   };
 };

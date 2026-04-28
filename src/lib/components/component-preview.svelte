@@ -4,7 +4,6 @@
   import { page } from '$app/state';
   import CodeBlock from '$lib/components/code-block.svelte';
   import { cn } from '$lib/utils';
-  import { getRegistryExampleSource } from '$lib/utils/registry-sources';
 
   const exampleComponents = $derived((page.data.exampleComponents ?? {}) as Record<string, Component>);
 
@@ -25,7 +24,6 @@
   } = $props();
 
   let previewComponent = $derived(component ?? exampleComponents[name]);
-  let previewSource = $derived(getRegistryExampleSource(name));
 </script>
 
 {#snippet ExampleFallback()}
@@ -64,6 +62,6 @@
         {/if}
       </div>
     </div>
-    <CodeBlock class="rounded-none" source={previewSource} {children} />
+    <CodeBlock class="rounded-none" {name} {children} />
   </div>
 </div>

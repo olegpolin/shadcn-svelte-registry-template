@@ -1,82 +1,53 @@
 <script lang="ts" module>
-	function useActiveItem(getItemIds: () => string[]) {
-		let activeId = $state<string | null>(null);
-		const itemIds = $derived(getItemIds().map((id) => id.replace("#", "")));
+  export type TocItem = {
+    title: string;
+    url: string;
+    items?: TocItem[];
+  };
 
-		$effect(() => {
-			const observer = new IntersectionObserver((entries) => {
-				for (const entry of entries) {
-					if (entry.isIntersecting) {
-						activeId = entry.target.id;
-					}
-				}
-			});
+  export type TableOfContents = {
+    items?: TocItem[];
+  };
 
-			for (const id of itemIds ?? []) {
-				const element = document.getElementById(id);
-				if (element) {
-					observer.observe(element);
-				}
-			}
+  type FlattenedTocItem = {
+    title: string;
+    url: string;
+    depth: number;
+  };
 
-			// Default to first item when no heading has been intersected yet
-			if (activeId === null && itemIds.length > 0) {
-				activeId = itemIds[0];
-			}
+  type DocsTocHref = `/docs#${string}` | `/docs/${string}#${string}`;
 
-			return () => {
-				observer.disconnect();
-			};
-		});
+  function flattenToc(items: TocItem[], depth = 0, result: FlattenedTocItem[] = []): FlattenedTocItem[] {
+    for (const item of items) {
+      result.push({
+        title: item.title,
+        url: item.url,
+        depth
+      });
 
-		return {
-			get current() {
-				return activeId;
-			},
-		};
-	}
+      if (item.items && item.items.length > 0) {
+        flattenToc(item.items, depth + 1, result);
+      }
+    }
 
-	export type TocItem = {
-		title: string;
-		url: string;
-		items?: TocItem[];
-	};
-
-	export type TableOfContents = {
-		items?: TocItem[];
-	};
-
-	function flattenToc(
-		items: TocItem[],
-		depth = 0
-	): Array<{ title: string; url: string; depth: number }> {
-		const result: Array<{ title: string; url: string; depth: number }> = [];
-
-		for (const item of items) {
-			result.push({
-				title: item.title,
-				url: item.url,
-				depth,
-			});
-
-			if (item.items && item.items.length > 0) {
-				result.push(...flattenToc(item.items, depth + 1));
-			}
-		}
-
-		return result;
-	}
+    return result;
+  }
 </script>
 
 <script lang="ts">
-	let {
-		toc,
-		class: className,
-	}: { toc: TableOfContents; class?: string } = $props();
+  import { resolve } from '$app/paths';
 
-	const flattenedToc = $derived(flattenToc(toc.items ?? []));
-	const itemIds = $derived(flattenedToc.map((item) => item.url));
-	const activeHeading = useActiveItem(() => itemIds);
+  let {
+    toc,
+    slug,
+    class: className
+  }: { toc: TableOfContents; slug: string; class?: string } = $props();
+
+  const flattenedToc = $derived(flattenToc(toc.items ?? []));
+
+  function getDocsTocHref(slug: string, hash: string): DocsTocHref {
+    return (slug === 'index' ? `/docs${hash}` : `/docs/${slug}${hash}`) as DocsTocHref;
+  }
 </script>
 
 {#if flattenedToc.length}
@@ -84,9 +55,8 @@
     <p class="text-muted-foreground bg-background sticky top-0 h-6 text-xs">On This Page</p>
     {#each flattenedToc as item (item.url)}
       <a
-        href={item.url}
-        class="text-muted-foreground hover:text-foreground data-[active=true]:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=1]:ps-4 data-[depth=2]:ps-6"
-        data-active={item.url === `#${activeHeading.current}`}
+        href={resolve(getDocsTocHref(slug, item.url))}
+        class="text-muted-foreground hover:text-foreground text-[0.8rem] no-underline transition-colors data-[depth=1]:ps-4 data-[depth=2]:ps-6"
         data-depth={item.depth}
       >
         {item.title}
