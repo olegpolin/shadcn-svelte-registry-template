@@ -1,49 +1,46 @@
 import type { EntryGenerator, PageServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
-import {
-  extractRegistryExampleReferences,
-  getRegistryExampleSources
-} from '$lib/utils/docs-content.server';
+import { extractDocsAssets } from '$lib/utils/docs-content.server';
 import { generateToc } from '$lib/utils/toc';
 
-type ModuleWithMetadata = {
+type DocModule = {
   metadata: { title: string; description: string };
 };
 
-const modules = import.meta.glob('/src/lib/content/docs/**/*.md', { eager: true }) as Record<string, ModuleWithMetadata>;
-const rawModules = import.meta.glob('/src/lib/content/docs/**/*.md', {
+const docModules = import.meta.glob('/src/lib/content/docs/**/*.md', { eager: true }) as Record<string, DocModule>;
+const rawDocSources = import.meta.glob('/src/lib/content/docs/**/*.md', {
   eager: true,
   query: '?raw',
   import: 'default'
 }) as Record<string, string>;
 
-export const entries: EntryGenerator = () => {
-  return Object.keys(modules).map((filePath) => {
-    const slug = filePath
-      .replace('/src/lib/content/docs/', '')
-      .replace(/\.md$/, '');
+const slugFromPath = (filePath: string) =>
+  filePath.replace('/src/lib/content/docs/', '').replace(/\.md$/, '');
+
+export const entries: EntryGenerator = () =>
+  Object.keys(docModules).map((filePath) => {
+    const slug = slugFromPath(filePath);
     return { slug: slug === 'index' ? '' : slug };
   });
-};
 
-export const load: PageServerLoad = async ({ params }) => {
+export const load: PageServerLoad = ({ params }) => {
   const path = params.slug && params.slug.length > 0 ? params.slug : 'index';
   const filePath = `/src/lib/content/docs/${path}.md`;
 
-  const mod = modules[filePath];
-  const raw = rawModules[filePath];
+  const mod = docModules[filePath];
+  const raw = rawDocSources[filePath];
 
-  if (!mod || !raw) {
-    error(404, 'Not Found');
-  }
+  if (!mod || !raw) error(404, 'Not Found');
 
-  const { previewNames, sourceNames } = extractRegistryExampleReferences(raw);
+  const { previewNames, exampleSources } = extractDocsAssets(raw);
+  const { entries: tocEntries, headingIds } = generateToc(raw);
 
   return {
     meta: mod.metadata,
-    toc: generateToc(raw),
     slug: path,
+    toc: tocEntries,
+    headingIds,
     previewNames,
-    exampleSources: getRegistryExampleSources(sourceNames)
+    exampleSources
   };
 };

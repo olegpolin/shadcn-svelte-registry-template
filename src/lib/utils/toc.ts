@@ -1,19 +1,21 @@
-export interface TocEntry {
+export type TocEntry = {
   title: string;
   url: string;
-  items: TocEntry[];
-}
-
-type StackEntry = {
   depth: number;
-  entry: TocEntry;
 };
 
-const headingRegex = /^(#{1,6})\s+(.+?)(?:\s+#+)?$/;
-const fenceRegex = /^\s*(```|~~~)/;
+export type Toc = {
+  entries: TocEntry[];
+  headingIds: string[];
+};
 
-export function sanitizeHeadingTitle(rawTitle: string): string {
-  return rawTitle
+// Single regex matches either a code-fence line (group 1) or a heading line
+// (groups 2 + 3) at line starts. Non-heading/non-fence lines are skipped by
+// the regex engine, so we never allocate per-line substrings.
+const HEADING_OR_FENCE_RE = /^(?:(\s*(?:```|~~~))|(#{1,6})\s+(.+?)(?:\s+#+)?)\r?$/gm;
+
+function sanitizeTitle(raw: string): string {
+  return raw
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
     .replace(/[*_]{1,3}(.*?)[*_]{1,3}/g, '$1')
     .replace(/`([^`]+)`/g, '$1')
@@ -22,7 +24,7 @@ export function sanitizeHeadingTitle(rawTitle: string): string {
     .trim();
 }
 
-export function slugifyHeadingTitle(title: string): string {
+export function slugifyTitle(title: string): string {
   return title
     .toLowerCase()
     .replace(/[^\p{L}\p{N}\s-]/gu, '')
@@ -30,83 +32,48 @@ export function slugifyHeadingTitle(title: string): string {
     .replace(/\s+/g, '-');
 }
 
-export function getUniqueHeadingSlug(baseSlug: string, slugCounts: Map<string, number>): string {
-  const count = slugCounts.get(baseSlug) ?? 0;
-  slugCounts.set(baseSlug, count + 1);
-
-  return count === 0 ? baseSlug : `${baseSlug}-${count}`;
+function stripFrontmatter(markdown: string): string {
+  if (!/^---\r?\n/.test(markdown)) return markdown;
+  const close = markdown.indexOf('\n---', 4);
+  if (close === -1) return markdown;
+  let end = close + 4;
+  if (markdown[end] === '\r') end++;
+  if (markdown[end] === '\n') end++;
+  return markdown.slice(end);
 }
 
-export function generateToc(markdown: string): TocEntry[] {
-  const toc: TocEntry[] = [];
-  const stack: StackEntry[] = [];
-  const slugCounts = new Map<string, number>();
-  let index = 0;
-  let lineNumber = 0;
-  let inFrontmatter = false;
-  let inCodeFence = false;
+export function generateToc(markdown: string): Toc {
+  const body = stripFrontmatter(markdown);
+  const counts = new Map<string, number>();
+  const entries: TocEntry[] = [];
+  const headingIds: string[] = [];
+  const depthStack: number[] = [];
+  let inFence = false;
 
-  while (index <= markdown.length) {
-    const nextLineBreak = markdown.indexOf('\n', index);
-    const line =
-      nextLineBreak === -1
-        ? markdown.slice(index).replace(/\r$/, '')
-        : markdown.slice(index, nextLineBreak).replace(/\r$/, '');
-
-    index = nextLineBreak === -1 ? markdown.length + 1 : nextLineBreak + 1;
-
-    if (lineNumber === 0 && line.trim() === '---') {
-      inFrontmatter = true;
-      lineNumber += 1;
+  HEADING_OR_FENCE_RE.lastIndex = 0;
+  for (let m: RegExpExecArray | null; (m = HEADING_OR_FENCE_RE.exec(body)) !== null; ) {
+    if (m[1] !== undefined) {
+      inFence = !inFence;
       continue;
     }
+    if (inFence) continue;
 
-    if (inFrontmatter) {
-      if (line.trim() === '---') {
-        inFrontmatter = false;
-      }
-      lineNumber += 1;
-      continue;
+    const headingDepth = m[2].length;
+    const title = sanitizeTitle(m[3]);
+    const baseSlug = slugifyTitle(title);
+    if (!baseSlug) continue;
+
+    const count = counts.get(baseSlug) ?? 0;
+    counts.set(baseSlug, count + 1);
+    const id = count === 0 ? baseSlug : `${baseSlug}-${count}`;
+    headingIds.push(id);
+
+    while (depthStack.length > 0 && depthStack[depthStack.length - 1] >= headingDepth) {
+      depthStack.pop();
     }
-
-    if (fenceRegex.test(line)) {
-      inCodeFence = !inCodeFence;
-      lineNumber += 1;
-      continue;
-    }
-
-    if (!inCodeFence) {
-      const match = headingRegex.exec(line);
-
-      if (match) {
-        const title = sanitizeHeadingTitle(match[2]);
-        const baseSlug = slugifyHeadingTitle(title);
-
-        if (baseSlug) {
-          const entry: TocEntry = {
-            title,
-            url: `#${getUniqueHeadingSlug(baseSlug, slugCounts)}`,
-            items: []
-          };
-          const depth = match[1].length;
-
-          while (stack.length > 0 && stack[stack.length - 1].depth >= depth) {
-            stack.pop();
-          }
-
-          if (stack.length === 0) {
-            toc.push(entry);
-          } else {
-            stack[stack.length - 1].entry.items.push(entry);
-          }
-
-          stack.push({ depth, entry });
-        }
-      }
-    }
-
-    lineNumber += 1;
+    entries.push({ title, url: `#${id}`, depth: depthStack.length });
+    depthStack.push(headingDepth);
   }
 
-  return toc;
+  return { entries, headingIds };
 }

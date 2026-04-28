@@ -1,52 +1,36 @@
-type RegistryExampleReferences = {
+export type DocsAssets = {
   previewNames: string[];
-  sourceNames: string[];
+  exampleSources: Record<string, string>;
 };
 
-type RegistryExampleSources = Record<string, string>;
+const TAG_NAME_RE = /<(ComponentPreview|CodeBlock)\s[^>]*\bname=["']([^"']+)["']/g;
 
-const componentPreviewNameRegex = /<ComponentPreview\s[^>]*\bname=["']([^"']+)["']/g;
-const registrySourceNameRegex = /<(?:ComponentPreview|CodeBlock)\s[^>]*\bname=["']([^"']+)["']/g;
-
-const registryExampleSourceModules = import.meta.glob(
+const exampleSourceModules = import.meta.glob(
   '/src/lib/registry/examples/*.svelte',
   { eager: true, query: '?raw', import: 'default' }
 ) as Record<string, string>;
 
-function collectUniqueMatches(markdown: string, regex: RegExp): string[] {
-  const names = new Set<string>();
-  let match: RegExpExecArray | null;
+/**
+ * Single-pass scan of a markdown source. Tags that need a Svelte component
+ * (ComponentPreview) populate `previewNames`; tags that need raw source
+ * (ComponentPreview and CodeBlock) populate `exampleSources`.
+ */
+export function extractDocsAssets(markdown: string): DocsAssets {
+  const previewNames = new Set<string>();
+  const sourceNames = new Set<string>();
 
-  regex.lastIndex = 0;
-
-  while ((match = regex.exec(markdown)) !== null) {
-    names.add(match[1]);
+  TAG_NAME_RE.lastIndex = 0;
+  for (let m: RegExpExecArray | null; (m = TAG_NAME_RE.exec(markdown)) !== null; ) {
+    const [, tag, name] = m;
+    sourceNames.add(name);
+    if (tag === 'ComponentPreview') previewNames.add(name);
   }
 
-  return [...names];
-}
-
-function getRegistryExampleSource(name: string): string | undefined {
-  return registryExampleSourceModules[`/src/lib/registry/examples/${name}.svelte`];
-}
-
-export function extractRegistryExampleReferences(markdown: string): RegistryExampleReferences {
-  return {
-    previewNames: collectUniqueMatches(markdown, componentPreviewNameRegex),
-    sourceNames: collectUniqueMatches(markdown, registrySourceNameRegex)
-  };
-}
-
-export function getRegistryExampleSources(names: string[]): RegistryExampleSources {
-  const sources: RegistryExampleSources = {};
-
-  for (const name of names) {
-    const source = getRegistryExampleSource(name);
-
-    if (source) {
-      sources[name] = source;
-    }
+  const exampleSources: Record<string, string> = {};
+  for (const name of sourceNames) {
+    const source = exampleSourceModules[`/src/lib/registry/examples/${name}.svelte`];
+    if (source) exampleSources[name] = source;
   }
 
-  return sources;
+  return { previewNames: [...previewNames], exampleSources };
 }
