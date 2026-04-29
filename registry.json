@@ -4,6 +4,41 @@
   "homepage": "https://shadcn-svelte-registry-template.vercel.app",
   "items": [
     {
+      "name": "avatar",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/avatar/avatar-badge.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/avatar/avatar-fallback.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/avatar/avatar-group-count.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/avatar/avatar-group.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/avatar/avatar-image.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/avatar/avatar.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/avatar/index.ts"
+        }
+      ]
+    },
+    {
       "name": "badge",
       "type": "registry:ui",
       "registryDependencies": [],
