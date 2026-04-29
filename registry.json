@@ -146,6 +146,61 @@
       ]
     },
     {
+      "name": "command",
+      "type": "registry:ui",
+      "registryDependencies": ["dialog"],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/command/command-dialog.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/command/command-empty.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/command/command-group.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/command/command-input.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/command/command-item.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/command/command-link-item.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/command/command-list.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/command/command-loading.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/command/command-separator.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/command/command-shortcut.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/command/command.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/command/index.ts"
+        }
+      ]
+    },
+    {
       "name": "dropdown-menu",
       "type": "registry:ui",
       "registryDependencies": [],
