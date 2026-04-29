@@ -69,6 +69,29 @@
       ]
     },
     {
+      "name": "button-group",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/button-group/button-group-separator.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/button-group/button-group-text.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/button-group/button-group.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/button-group/index.ts"
+        }
+      ]
+    },
+    {
       "name": "card",
       "type": "registry:ui",
       "registryDependencies": [],
