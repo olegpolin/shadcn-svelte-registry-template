@@ -201,6 +201,57 @@
       ]
     },
     {
+      "name": "dialog",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dialog/dialog-close.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dialog/dialog-content.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dialog/dialog-description.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dialog/dialog-footer.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dialog/dialog-header.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dialog/dialog-overlay.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dialog/dialog-portal.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dialog/dialog-title.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dialog/dialog-trigger.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dialog/dialog.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/dialog/index.ts"
+        }
+      ]
+    },
+    {
       "name": "dropdown-menu",
       "type": "registry:ui",
       "registryDependencies": [],
