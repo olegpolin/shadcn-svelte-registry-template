@@ -467,6 +467,57 @@
       ]
     },
     {
+      "name": "item",
+      "type": "registry:ui",
+      "registryDependencies": ["separator"],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/item/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/item/item-actions.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/item/item-content.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/item/item-description.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/item/item-footer.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/item/item-group.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/item/item-header.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/item/item-media.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/item/item-separator.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/item/item-title.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/item/item.svelte"
+        }
+      ]
+    },
+    {
       "name": "label",
       "type": "registry:ui",
       "registryDependencies": [],
