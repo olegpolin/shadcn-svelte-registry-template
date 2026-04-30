@@ -622,6 +622,25 @@
       ]
     },
     {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/radio-group/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/radio-group/radio-group-item.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/radio-group/radio-group.svelte"
+        }
+      ]
+    },
+    {
       "name": "scroll-area",
       "type": "registry:ui",
       "registryDependencies": [],
