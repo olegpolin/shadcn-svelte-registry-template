@@ -945,6 +945,21 @@
       ]
     },
     {
+      "name": "switch",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/switch/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/switch/switch.svelte"
+        }
+      ]
+    },
+    {
       "name": "tabs",
       "type": "registry:ui",
       "registryDependencies": [],
