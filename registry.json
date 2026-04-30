@@ -987,6 +987,21 @@
       ]
     },
     {
+      "name": "textarea",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/textarea/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/textarea/textarea.svelte"
+        }
+      ]
+    },
+    {
       "name": "tooltip",
       "type": "registry:ui",
       "registryDependencies": [],
