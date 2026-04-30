@@ -915,6 +915,21 @@
       ]
     },
     {
+      "name": "slider",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/slider/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/slider/slider.svelte"
+        }
+      ]
+    },
+    {
       "name": "tabs",
       "type": "registry:ui",
       "registryDependencies": [],
