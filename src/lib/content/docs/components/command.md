@@ -29,7 +29,3 @@ description: Fast, composable, unstyled command menu for Svelte.
 To show the command menu in a dialog, use the `<Command.Dialog />` component instead of `<Command.Root />`. It accepts props for both the `<Dialog.Root />` and `<Command.Root />` components.
 
 <CodeBlock name="command-menu" />
-
-### Combobox
-
-You can use the `<Command />` component as a combobox. See the [Combobox](/docs/components/combobox) page for more information.
