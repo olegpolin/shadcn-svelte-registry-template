@@ -660,6 +660,61 @@
       ]
     },
     {
+      "name": "select",
+      "type": "registry:ui",
+      "registryDependencies": ["separator"],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/select/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/select/select-content.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/select/select-group-heading.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/select/select-group.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/select/select-item.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/select/select-label.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/select/select-portal.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/select/select-scroll-down-button.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/select/select-scroll-up-button.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/select/select-separator.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/select/select-trigger.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/select/select.svelte"
+        }
+      ]
+    },
+    {
       "name": "separator",
       "type": "registry:ui",
       "registryDependencies": [],
