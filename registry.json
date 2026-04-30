@@ -331,6 +331,41 @@
       ]
     },
     {
+      "name": "empty",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/empty/empty-content.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/empty/empty-description.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/empty/empty-header.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/empty/empty-media.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/empty/empty-title.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/empty/empty.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/empty/index.ts"
+        }
+      ]
+    },
+    {
       "name": "input",
       "type": "registry:ui",
       "registryDependencies": [],
