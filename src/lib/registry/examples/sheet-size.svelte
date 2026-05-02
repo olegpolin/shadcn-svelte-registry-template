@@ -1,5 +1,5 @@
 <script lang="ts">
-  import * as Sheet from "$lib/registry/ui/sheet";
+  import * as Sheet from "$lib/registry/ui/sheet/index.js";
 </script>
 
 <Sheet.Root>
