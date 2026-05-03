@@ -604,7 +604,9 @@
                           aria-label={hasMentions ? "Add context" : undefined}
                         >
                           <AtIcon />
-                          {!hasMentions && "Add context"}
+                          {#if !hasMentions}
+                            Add context
+                          {/if}
                         </InputGroup.Button>
                       {/snippet}
                     </Popover.Trigger>
