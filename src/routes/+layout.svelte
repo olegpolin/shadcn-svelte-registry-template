@@ -12,7 +12,7 @@
 
 <svelte:head>
   <link rel="icon" href={favicon} />
-  <meta property="og:image" content={`${page.url.origin}/logo.svg`} />
+  <meta property="og:image" content={`${page.url.origin}/logo.png`} />
 </svelte:head>
 
 <ModeWatcher defaultMode="dark"/>
