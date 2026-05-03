@@ -139,7 +139,7 @@
     text-rendering: optimizeLegibility;
   }
   html {
-    @apply font-sans scroll-smooth;
+    @apply scroll-smooth font-sans;
   }
 }
 
@@ -173,7 +173,7 @@
   }
 
   & p:not(:where(.no-prose-docs *)) {
-    @apply leading-[1.65rem] mb-4;
+    @apply mb-4 leading-[1.65rem];
   }
 
   & p:not(:first-child):not(:where(.no-prose-docs *)) {
@@ -190,7 +190,7 @@
 
   /* inline code */
   & code:not(pre code):not(:where(.no-prose-docs *)) {
-    @apply bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] outline-none;
+    @apply relative rounded-md bg-muted px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] outline-none;
   }
 
   /* fenced code block container */

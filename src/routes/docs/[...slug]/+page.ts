@@ -14,7 +14,7 @@ export const load: PageLoad = async ({ params, data }) => {
   }
 
   // Load the markdown component
-  const module = await modules[filePath]() as { default: Component };
+  const module = (await modules[filePath]()) as { default: Component };
 
   // Dynamically import only the preview components rendered on this page.
   const exampleComponents: Record<string, Component> = {};
@@ -23,7 +23,7 @@ export const load: PageLoad = async ({ params, data }) => {
       data.previewNames.map(async (name) => {
         const importFn = exampleModules[`/src/lib/registry/examples/${name}.svelte`];
         if (importFn) {
-          const mod = await importFn() as { default: Component };
+          const mod = (await importFn()) as { default: Component };
           exampleComponents[name] = mod.default;
         }
       })

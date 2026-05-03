@@ -5,10 +5,11 @@ export type DocsAssets = {
 
 const TAG_NAME_RE = /<(ComponentPreview|CodeBlock)\s[^>]*\bname=["']([^"']+)["']/g;
 
-const exampleSourceModules = import.meta.glob(
-  '/src/lib/registry/examples/*.svelte',
-  { eager: true, query: '?raw', import: 'default' }
-) as Record<string, string>;
+const exampleSourceModules = import.meta.glob('/src/lib/registry/examples/*.svelte', {
+  eager: true,
+  query: '?raw',
+  import: 'default'
+}) as Record<string, string>;
 
 /**
  * Single-pass scan of a markdown source. Tags that need a Svelte component

@@ -34,25 +34,27 @@
 </script>
 
 {#snippet mobileLink({ title, href }: { title: string; href: string })}
-  <a class="text-2xl font-medium active:opacity-60" href={href} onclick={() => (mobileMenuOpen = false)}>
+  <a class="text-2xl font-medium active:opacity-60" {href} onclick={() => (mobileMenuOpen = false)}>
     {title}
   </a>
 {/snippet}
 
-<header class="sticky top-0 z-50 h-14 flex flex-row items-center justify-between gap-8 bg-background px-6 py-3">
+<header
+  class="sticky top-0 z-50 flex h-14 flex-row items-center justify-between gap-8 bg-background px-6 py-3"
+>
   <Popover.Root bind:open={mobileMenuOpen}>
-    <Popover.Trigger class={['lg:hidden gap-2.5! p-0!', buttonVariants({ variant: 'ghost' })]}>
-      <div class="h-8 flex flex-row items-center">
+    <Popover.Trigger class={['gap-2.5! p-0! lg:hidden', buttonVariants({ variant: 'ghost' })]}>
+      <div class="flex h-8 flex-row items-center">
         <div class="relative size-4">
           <span
             class={[
-              'bg-foreground absolute inset-s-0 block h-0.5 w-4 transition-all duration-100',
+              'absolute inset-s-0 block h-0.5 w-4 bg-foreground transition-all duration-100',
               mobileMenuOpen ? 'top-[0.4rem] -rotate-45' : 'top-1'
             ]}
           ></span>
           <span
             class={[
-              'bg-foreground absolute inset-s-0 block h-0.5 w-4 transition-all duration-100',
+              'absolute inset-s-0 block h-0.5 w-4 bg-foreground transition-all duration-100',
               mobileMenuOpen ? 'top-[0.4rem] rotate-45' : 'top-2.5'
             ]}
           ></span>
@@ -62,7 +64,7 @@
       <span class="flex items-center text-lg font-medium">Menu</span>
     </Popover.Trigger>
     <Popover.Content
-      class="no-scrollbar bg-background/90 h-(--bits-popover-content-available-height) w-(--bits-popover-content-available-width) overflow-y-auto rounded-none border-none p-0 shadow-none backdrop-blur"
+      class="no-scrollbar h-(--bits-popover-content-available-height) w-(--bits-popover-content-available-width) overflow-y-auto rounded-none border-none bg-background/90 p-0 shadow-none backdrop-blur"
       align="start"
       side="bottom"
       preventScroll
@@ -70,7 +72,7 @@
       <div class="flex flex-col gap-8 overflow-auto p-6">
         {#each mobileNavLinks as navGroup (navGroup.title)}
           <div class="flex flex-col gap-4">
-            <span class="text-sm text-muted-foreground font-medium">{navGroup.title}</span>
+            <span class="text-sm font-medium text-muted-foreground">{navGroup.title}</span>
             <div class="flex flex-col gap-3">
               {#each navGroup.links as navGroupLink}
                 {@render mobileLink({ title: navGroupLink.title, href: navGroupLink.href })}
@@ -111,7 +113,14 @@
       <CommandMenu />
     </div>
     <Separator class="h-4" orientation="vertical" />
-    <Button variant="ghost" size="icon-sm" href="https://github.com/olegpolin/shadcn-svelte-registry-template" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+    <Button
+      variant="ghost"
+      size="icon-sm"
+      href="https://github.com/olegpolin/shadcn-svelte-registry-template"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="GitHub repository"
+    >
       <GitHubIcon />
     </Button>
     <Separator class="h-4" orientation="vertical" />

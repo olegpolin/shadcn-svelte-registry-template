@@ -5,18 +5,20 @@
   import CodeBlock from '$lib/components/code-block.svelte';
   import { cn } from '$lib/utils';
 
-  const exampleComponents = $derived((page.data.exampleComponents ?? {}) as Record<string, Component>);
+  const exampleComponents = $derived(
+    (page.data.exampleComponents ?? {}) as Record<string, Component>
+  );
 
   let {
     class: className,
-    align = "center",
+    align = 'center',
     component,
     example,
     children,
     name,
     ...restProps
   }: HTMLAttributes<HTMLElement> & {
-    align?: "center" | "start" | "end";
+    align?: 'center' | 'start' | 'end';
     hideCode?: boolean;
     example?: Snippet;
     component?: Component;
@@ -31,9 +33,9 @@
     {@const PreviewComponent = previewComponent}
     <PreviewComponent />
   {:else}
-    <p class="text-muted-foreground text-sm">
+    <p class="text-sm text-muted-foreground">
       Component
-      <code class="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm">
+      <code class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
         {name}
       </code>
       not found in registry.
@@ -42,7 +44,10 @@
 {/snippet}
 
 <div
-  class={cn("no-prose-docs group relative mt-4 mb-12 flex flex-col gap-2 rounded-lg border", className)}
+  class={cn(
+    'no-prose-docs group relative mt-4 mb-12 flex flex-col gap-2 rounded-lg border',
+    className
+  )}
   {...restProps}
 >
   <div>

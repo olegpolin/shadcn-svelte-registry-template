@@ -18,11 +18,17 @@
     children?: Snippet;
   } = $props();
 
-  const registryExampleSources = $derived(page.data.exampleSources as Record<string, string> | undefined);
+  const registryExampleSources = $derived(
+    page.data.exampleSources as Record<string, string> | undefined
+  );
   let resolvedSource = $derived(source ?? (name ? registryExampleSources?.[name] : undefined));
-  let displaySource = $derived(resolvedSource?.replaceAll('$lib/registry/ui', '$lib/components/ui'));
+  let displaySource = $derived(
+    resolvedSource?.replaceAll('$lib/registry/ui', '$lib/components/ui')
+  );
   let copySource = $derived(displaySource?.replace(/^\n+/, ''));
-  let showCommandTopLine = $derived(copySource?.trimStart().startsWith('npx shadcn-svelte') ?? false);
+  let showCommandTopLine = $derived(
+    copySource?.trimStart().startsWith('npx shadcn-svelte') ?? false
+  );
   let renderedSource = $derived(showCommandTopLine && copySource ? `\n${copySource}` : copySource);
 
   let copied = $state(false);
@@ -52,10 +58,7 @@
   });
 </script>
 
-<div
-  data-slot="code"
-  class={['relative overflow-hidden rounded-lg [&_pre]:max-h-100', className]}
->
+<div data-slot="code" class={['relative overflow-hidden rounded-lg [&_pre]:max-h-100', className]}>
   {#if children}
     {@render children()}
   {:else if displaySource}
@@ -63,7 +66,7 @@
       data-slot="copy-button"
       size="icon"
       variant="ghost"
-      class="bg-primary-foreground text-muted-foreground absolute inset-e-2 top-3 z-10 size-7 hover:opacity-100 focus-visible:opacity-100"
+      class="absolute inset-e-2 top-3 z-10 size-7 bg-primary-foreground text-muted-foreground hover:opacity-100 focus-visible:opacity-100"
       onclick={() => copySource && copyToClipboard(copySource)}
     >
       <span class="sr-only">Copy</span>
@@ -74,7 +77,10 @@
       {/if}
     </Button>
     <figure>
-      <pre class="bg-primary-foreground overflow-x-auto p-4 text-primary text-sm leading-relaxed"><code>{renderedSource}</code></pre>
+      <pre
+        class="overflow-x-auto bg-primary-foreground p-4 text-sm leading-relaxed text-primary"><code
+          >{renderedSource}</code
+        ></pre>
     </figure>
   {/if}
 </div>

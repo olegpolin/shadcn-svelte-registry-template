@@ -1,7 +1,7 @@
 export type ComponentLink = {
   title: string;
   href: string;
-}
+};
 
 export const headerLinks = [
   {
@@ -18,7 +18,7 @@ export const headerLinks = [
   },
   {
     title: 'Charts',
-    href:'/charts'
+    href: '/charts'
   },
   {
     title: 'Colors',
@@ -87,10 +87,10 @@ export function findNeighbors(
   next: ComponentLink | null;
 } {
   const path = pathName.split('?')[0].split('#')[0];
-  
+
   const allLinks: ComponentLink[] = [];
   const seen = new Set<string>();
-  
+
   for (const group of navGroups) {
     for (const link of group.links) {
       if (!seen.has(link.href)) {

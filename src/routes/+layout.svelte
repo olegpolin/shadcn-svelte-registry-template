@@ -18,7 +18,7 @@
   <meta property="og:image" content={`${page.url.origin}/logo.png`} />
 </svelte:head>
 
-<ModeWatcher defaultMode="dark"/>
+<ModeWatcher defaultMode="dark" />
 
 {#if navigating.to}
   <div
@@ -27,10 +27,10 @@
   ></div>
 {/if}
 
-<div class="min-h-svh flex flex-col">
+<div class="flex min-h-svh flex-col">
   <Header sidebarNavLinks={data.sidebarNavLinks} />
 
-  <main class="flex-1 flex flex-col">
+  <main class="flex flex-1 flex-col">
     <Tooltip.Provider>
       {@render children()}
     </Tooltip.Provider>

@@ -13,7 +13,7 @@
   const componentLinks = $derived((page.data.componentLinks ?? []) as ComponentLink[]);
 
   function handleKeydown(e: KeyboardEvent) {
-    if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || e.key === "/") {
+    if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || e.key === '/') {
       if (
         (e.target instanceof HTMLElement && e.target.isContentEditable) ||
         e.target instanceof HTMLInputElement ||
@@ -37,7 +37,7 @@
         {...props}
         variant="secondary"
         class={cn(
-          "bg-surface text-foreground dark:bg-card relative h-8 w-full justify-start pl-3 font-medium shadow-none sm:pr-12 md:w-48 lg:w-56 xl:w-64"
+          'bg-surface relative h-8 w-full justify-start pl-3 font-medium text-foreground shadow-none sm:pr-12 md:w-48 lg:w-56 xl:w-64 dark:bg-card'
         )}
       >
         <span class="hidden lg:inline-flex">Search components...</span>
@@ -56,7 +56,7 @@
     <Command.Root class="rounded-none bg-transparent">
       <Command.Input placeholder="Search components..." />
       <Command.List tabindex={-1} class="no-scrollbar min-h-80 scroll-pt-2 scroll-pb-1.5">
-        <Command.Empty class="text-muted-foreground py-12 text-center text-sm">
+        <Command.Empty class="py-12 text-center text-sm text-muted-foreground">
           No results found.
         </Command.Empty>
         <Command.Group
@@ -65,7 +65,7 @@
         >
           {#each componentLinks as link (link.title)}
             <Command.Item
-              class="data-[selected=true]:border-input data-[selected=true]:bg-input/50 h-9 rounded-md border border-transparent !px-3 font-medium"
+              class="h-9 rounded-md border border-transparent !px-3 font-medium data-[selected=true]:border-input data-[selected=true]:bg-input/50"
               value={link.title}
               onSelect={() => {
                 open = false;
@@ -73,7 +73,7 @@
               }}
             >
               <div
-                class="border-muted-foreground aspect-square size-4 rounded-full border border-dashed"
+                class="aspect-square size-4 rounded-full border border-dashed border-muted-foreground"
               ></div>
               {link.title}
             </Command.Item>
@@ -82,10 +82,14 @@
       </Command.List>
     </Command.Root>
     <div
-      class="text-muted-foreground absolute inset-x-0 bottom-0 z-20 flex h-10 items-center gap-2 rounded-b-xl border-t border-t-neutral-100 bg-neutral-50 px-4 text-xs font-medium dark:border-t-neutral-700 dark:bg-neutral-800"
+      class="absolute inset-x-0 bottom-0 z-20 flex h-10 items-center gap-2 rounded-b-xl border-t border-t-neutral-100 bg-neutral-50 px-4 text-xs font-medium text-muted-foreground dark:border-t-neutral-700 dark:bg-neutral-800"
     >
       <div class="flex items-center gap-2">
-        <div class="bg-muted text-muted-foreground border h-5 w-5 rounded-sm inline-flex items-center justify-center font-sans text-xs font-medium pointer-events-none select-none"><CornerDownLeftIcon class="size-3" /></div>
+        <div
+          class="pointer-events-none inline-flex h-5 w-5 items-center justify-center rounded-sm border bg-muted font-sans text-xs font-medium text-muted-foreground select-none"
+        >
+          <CornerDownLeftIcon class="size-3" />
+        </div>
         Go to Page
       </div>
     </div>

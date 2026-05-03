@@ -7,7 +7,10 @@ type DocModule = {
   metadata: { title: string; description: string };
 };
 
-const docModules = import.meta.glob('/src/lib/content/docs/**/*.md', { eager: true }) as Record<string, DocModule>;
+const docModules = import.meta.glob('/src/lib/content/docs/**/*.md', { eager: true }) as Record<
+  string,
+  DocModule
+>;
 const rawDocSources = import.meta.glob('/src/lib/content/docs/**/*.md', {
   eager: true,
   query: '?raw',

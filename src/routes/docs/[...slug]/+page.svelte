@@ -30,8 +30,12 @@
   description={data.meta.description || 'Documentation for shadcn-svelte registry template.'}
 />
 
-<div class="min-w-0 flex flex-row-reverse items-stretch text-[1.05rem] sm:text-[15px] xl:w-full pt-4">
-  <div class="sticky top-14.25 z-30 ms-auto hidden h-[calc(100svh-1.5rem)] xl:h-[calc(100svh-4rem)] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex">
+<div
+  class="flex min-w-0 flex-row-reverse items-stretch pt-4 text-[1.05rem] sm:text-[15px] xl:w-full"
+>
+  <div
+    class="sticky top-14.25 z-30 ms-auto hidden h-[calc(100svh-1.5rem)] w-72 flex-col gap-4 overflow-hidden overscroll-none pb-8 xl:flex xl:h-[calc(100svh-4rem)]"
+  >
     {#if data.toc.length}
       <div class="no-scrollbar overflow-y-auto px-8 pt-4">
         <DocsToc entries={data.toc} slug={data.slug} />
@@ -40,7 +44,9 @@
     {/if}
   </div>
   <div class="flex min-w-0 flex-1 flex-col">
-    <div class="mx-auto flex w-full max-w-2xl min-w-0 flex-1 flex-col px-4 py-6 text-neutral-800 md:px-0 lg:py-8 dark:text-neutral-300">
+    <div
+      class="mx-auto flex w-full max-w-2xl min-w-0 flex-1 flex-col px-4 py-6 text-neutral-800 md:px-0 lg:py-8 dark:text-neutral-300"
+    >
       <div class="flex flex-col gap-2">
         <div class="flex flex-col gap-2">
           <div class="flex items-start justify-between pb-2">
@@ -48,33 +54,33 @@
               {data.meta.title}
             </h1>
             <div
-							class="bg-background/80 border-border/50 fixed inset-x-0 bottom-0 isolate z-50 flex items-center gap-2 border-t px-6 py-4 backdrop-blur-sm sm:static sm:z-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:pt-1.5 sm:backdrop-blur-none"
-						>
-							{#if neighbors.previous}
-								<Button
-									variant="secondary"
-									size="icon"
-									class="ms-auto size-8 shadow-none md:size-7"
-									href={neighbors.previous.href}
-								>
-									<ArrowLeftIcon />
-									<span class="sr-only">Previous</span>
-								</Button>
-							{/if}
-							{#if neighbors.next}
-								<Button
-									variant="secondary"
-									size="icon"
-									class="size-8 shadow-none md:size-7"
-									href={neighbors.next.href}
-								>
-									<span class="sr-only">Next</span>
-									<ArrowRightIcon />
-								</Button>
-							{/if}
-						</div>
+              class="fixed inset-x-0 bottom-0 isolate z-50 flex items-center gap-2 border-t border-border/50 bg-background/80 px-6 py-4 backdrop-blur-sm sm:static sm:z-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:pt-1.5 sm:backdrop-blur-none"
+            >
+              {#if neighbors.previous}
+                <Button
+                  variant="secondary"
+                  size="icon"
+                  class="ms-auto size-8 shadow-none md:size-7"
+                  href={neighbors.previous.href}
+                >
+                  <ArrowLeftIcon />
+                  <span class="sr-only">Previous</span>
+                </Button>
+              {/if}
+              {#if neighbors.next}
+                <Button
+                  variant="secondary"
+                  size="icon"
+                  class="size-8 shadow-none md:size-7"
+                  href={neighbors.next.href}
+                >
+                  <span class="sr-only">Next</span>
+                  <ArrowRightIcon />
+                </Button>
+              {/if}
+            </div>
           </div>
-          <p class="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
+          <p class="text-[1.05rem] text-balance text-muted-foreground sm:text-base">
             {data.meta.description}
           </p>
         </div>
@@ -93,7 +99,7 @@
         {/if}
       </div>
       <div
-        class={[data.slug !== 'components' && 'prose-docs', 'w-full flex-1 mt-8']}
+        class={[data.slug !== 'components' && 'prose-docs', 'mt-8 w-full flex-1']}
         {@attach applyHeadingIds(data.headingIds)}
       >
         <Markdown />

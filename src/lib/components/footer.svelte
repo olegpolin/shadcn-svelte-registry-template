@@ -1,5 +1,5 @@
-<footer class="h-14 xl:h-24 flex items-center justify-center px-4 xl:px-6">
-  <span class="text-xs sm:text-sm text-center text-muted-foreground">
+<footer class="flex h-14 items-center justify-center px-4 xl:h-24 xl:px-6">
+  <span class="text-center text-xs text-muted-foreground sm:text-sm">
     Based on
     <a
       class="font-medium underline underline-offset-4"

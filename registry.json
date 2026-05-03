@@ -148,9 +148,7 @@
     {
       "name": "command",
       "type": "registry:ui",
-      "registryDependencies": [
-        "local:dialog"
-      ],
+      "registryDependencies": ["local:dialog"],
       "files": [
         {
           "type": "registry:file",
@@ -370,10 +368,7 @@
     {
       "name": "field",
       "type": "registry:ui",
-      "registryDependencies": [
-        "local:label",
-        "local:separator"
-      ],
+      "registryDependencies": ["local:label", "local:separator"],
       "files": [
         {
           "type": "registry:file",
@@ -439,11 +434,7 @@
     {
       "name": "input-group",
       "type": "registry:ui",
-      "registryDependencies": [
-        "local:button",
-        "local:input",
-        "local:textarea"
-      ],
+      "registryDependencies": ["local:button", "local:input", "local:textarea"],
       "files": [
         {
           "type": "registry:file",
@@ -478,9 +469,7 @@
     {
       "name": "item",
       "type": "registry:ui",
-      "registryDependencies": [
-        "local:separator"
-      ],
+      "registryDependencies": ["local:separator"],
       "files": [
         {
           "type": "registry:file",
@@ -673,9 +662,7 @@
     {
       "name": "select",
       "type": "registry:ui",
-      "registryDependencies": [
-        "local:separator"
-      ],
+      "registryDependencies": ["local:separator"],
       "files": [
         {
           "type": "registry:file",
