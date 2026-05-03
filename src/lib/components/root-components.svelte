@@ -538,7 +538,7 @@
               id="number-of-gpus"
               bind:value={gpuCount}
               size={3}
-              class="font-mono"
+              class="font-mono h-8"
               maxlength={3}
               oninput={handleGpuCountChange}
               type="text"
