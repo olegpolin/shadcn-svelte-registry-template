@@ -6,6 +6,14 @@ The UI components are in `src/lib/registry/ui`, the docs for each component are 
 
 Read the [shadcn-svelte registry docs](https://www.shadcn-svelte.com/docs/registry) for more information on how to make your own registry.
 
+## Adding a new component
+
+To add a new component, create a new folder in `src/lib/registry/ui` with the name of your component. Inside that folder, create the necessary Svelte files for your component (e.g. `button.svelte`, `index.ts`, etc.).
+
+Add a docs file for your component in `src/lib/content/docs` with the same name as your component (e.g. `button.md`). Add component examples in `src/lib/registry/examples`.
+
+Finally, add an entry for your component in `registry.json` with the appropriate paths to your component files.
+
 ## Developing
 
 Once you've installed dependencies with `npm install`, start a development server:
