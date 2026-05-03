@@ -938,13 +938,13 @@
                   <Field.Label for={option.value} class="!w-fit">
                     <Field.Field
                       orientation="horizontal"
-                      class="gap-1.5 overflow-hidden !px-3 !py-1.5 transition-all duration-100 ease-linear group-has-data-[state=checked]/field-label:!px-2"
+                      class="gap-2.5 overflow-hidden !px-3 !py-1.5 transition-all duration-100 ease-linear group-has-data-[state=checked]/field-label:!px-2"
                     >
                       <Checkbox
                         value={option.value}
                         id={option.value}
                         checked={option.value === "social-media"}
-                        class="-ms-6 -translate-x-1 rounded-full transition-all duration-100 ease-linear data-[state=checked]:ms-0 data-[state=checked]:translate-x-0"
+                        class="-ms-7 -translate-x-1 rounded-full transition-all duration-100 ease-linear data-[state=checked]:ms-0 data-[state=checked]:translate-x-0"
                         aria-label={option.label}
                       />
                       <Field.Title class="text-nowrap">{option.label}</Field.Title>
