@@ -109,7 +109,7 @@
   </NavigationMenu.Root>
 
   <div class="flex flex-row items-center gap-4">
-    <div class="hidden w-full flex-1 md:flex md:w-auto md:flex-none">
+    <div class="hidden md:flex md:w-auto md:flex-none">
       <CommandMenu />
     </div>
     <Separator class="h-4" orientation="vertical" />

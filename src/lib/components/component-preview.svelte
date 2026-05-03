@@ -53,7 +53,7 @@
   <div>
     <div
       data-slot="preview"
-      class="preview flex w-full justify-center data-[align=center]:items-center data-[align=end]:items-end data-[align=start]:items-start"
+      class="preview flex justify-center"
       data-llm-ignore
     >
       <div

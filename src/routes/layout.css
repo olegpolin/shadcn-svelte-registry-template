@@ -190,11 +190,11 @@
 
   /* inline code */
   & code:not(pre code):not(:where(.no-prose-docs *)) {
-    @apply relative rounded-md bg-muted px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] outline-none;
+    @apply relative rounded-md bg-muted px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem];
   }
 
   /* fenced code block container */
   & pre {
-    @apply no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none;
+    @apply no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5;
   }
 }
