@@ -46,6 +46,7 @@ get along, so we shut typescript up by casting `value` to `never`.
 				data-slot="slider-thumb"
 				index={thumb.index}
 				class="border-ring ring-ring/50 relative size-3 rounded-full border bg-white transition-[color,box-shadow] after:absolute after:-inset-2 hover:ring-3 focus-visible:ring-3 focus-visible:outline-hidden active:ring-3 block shrink-0 select-none disabled:pointer-events-none disabled:opacity-50"
+				aria-label={`Thumb ${thumb.index + 1}`}
 			/>
 		{/each}
 	{/snippet}
