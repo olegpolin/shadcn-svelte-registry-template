@@ -1,13 +1,20 @@
 <script lang="ts">
   import type { PageProps } from './$types';
   import type { Attachment } from 'svelte/attachments';
+  import { page } from '$app/state';
   import Seo from '$lib/components/seo.svelte';
   import { Badge } from '$lib/registry/ui/badge';
+  import { Button } from '$lib/registry/ui/button';
   import DocsToc from '$lib/components/docs-toc.svelte';
+  import { findNeighbors } from '$lib/utils/navigation';
+  import ArrowLeftIcon from '@lucide/svelte/icons/arrow-left';
+  import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
   import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
 
   let { data }: PageProps = $props();
   let Markdown = $derived(data.markdown);
+
+  let neighbors = $derived(findNeighbors(page.url.pathname, data.sidebarNavLinks));
 
   function applyHeadingIds(ids: string[]): Attachment<HTMLElement> {
     return (node) => {
@@ -40,6 +47,32 @@
             <h1 class="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl">
               {data.meta.title}
             </h1>
+            <div
+							class="bg-background/80 border-border/50 fixed inset-x-0 bottom-0 isolate z-50 flex items-center gap-2 border-t px-6 py-4 backdrop-blur-sm sm:static sm:z-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:pt-1.5 sm:backdrop-blur-none"
+						>
+							{#if neighbors.previous}
+								<Button
+									variant="secondary"
+									size="icon"
+									class="ms-auto size-8 shadow-none md:size-7"
+									href={neighbors.previous.href}
+								>
+									<ArrowLeftIcon />
+									<span class="sr-only">Previous</span>
+								</Button>
+							{/if}
+							{#if neighbors.next}
+								<Button
+									variant="secondary"
+									size="icon"
+									class="size-8 shadow-none md:size-7"
+									href={neighbors.next.href}
+								>
+									<span class="sr-only">Next</span>
+									<ArrowRightIcon />
+								</Button>
+							{/if}
+						</div>
           </div>
           <p class="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
             {data.meta.description}
