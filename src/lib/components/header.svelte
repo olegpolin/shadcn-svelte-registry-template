@@ -6,6 +6,7 @@
   import { Separator } from '$lib/registry/ui/separator';
   import { userPrefersMode } from 'mode-watcher';
   import { headerLinks, type SidebarNavGroup } from '$lib/utils/navigation';
+  import CommandMenu from '$lib/components/command-menu.svelte';
   import Logo from '$lib/assets/logo.svelte';
   import GitHubIcon from '$lib/assets/icons/github-icon.svelte';
   import ModeSwitcherIcon from '$lib/assets/icons/mode-switcher-icon.svelte';
@@ -40,7 +41,7 @@
 
 <header class="sticky top-0 z-50 h-14 flex flex-row items-center justify-between gap-8 bg-background px-6 py-3">
   <Popover.Root bind:open={mobileMenuOpen}>
-    <Popover.Trigger class={['md:hidden gap-2.5! p-0!', buttonVariants({ variant: 'ghost' })]}>
+    <Popover.Trigger class={['lg:hidden gap-2.5! p-0!', buttonVariants({ variant: 'ghost' })]}>
       <div class="h-8 flex flex-row items-center">
         <div class="relative size-4">
           <span
@@ -81,7 +82,7 @@
     </Popover.Content>
   </Popover.Root>
 
-  <NavigationMenu.Root class="max-md:hidden">
+  <NavigationMenu.Root class="max-lg:hidden">
     <NavigationMenu.List>
       <NavigationMenu.Item>
         <NavigationMenu.Link>
@@ -106,6 +107,10 @@
   </NavigationMenu.Root>
 
   <div class="flex flex-row items-center gap-4">
+    <div class="hidden w-full flex-1 md:flex md:w-auto md:flex-none">
+      <CommandMenu />
+    </div>
+    <Separator class="h-4" orientation="vertical" />
     <Button variant="ghost" size="icon-sm" href="https://github.com/olegpolin/shadcn-svelte-registry-template" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
       <GitHubIcon />
     </Button>
