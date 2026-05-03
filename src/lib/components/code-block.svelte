@@ -54,7 +54,7 @@
 
 <div
   data-slot="code"
-  class={['relative overflow-hidden rounded-lg **:data-rehype-pretty-code-figure:m-0! **:data-rehype-pretty-code-figure:rounded-t-none [&_pre]:max-h-100', className]}
+  class={['relative overflow-hidden rounded-lg [&_pre]:max-h-100', className]}
 >
   {#if children}
     {@render children()}
@@ -63,17 +63,17 @@
       data-slot="copy-button"
       size="icon"
       variant="ghost"
-      class="bg-code text-muted-foreground absolute inset-e-2 top-3 z-10 size-7 hover:opacity-100 focus-visible:opacity-100"
+      class="bg-primary-foreground text-muted-foreground absolute inset-e-2 top-3 z-10 size-7 hover:opacity-100 focus-visible:opacity-100"
       onclick={() => copySource && copyToClipboard(copySource)}
     >
-      <span class="sr-only" data-llm-ignore>Copy</span>
+      <span class="sr-only">Copy</span>
       {#if copied}
         <CheckIcon />
       {:else}
         <CopyIcon />
       {/if}
     </Button>
-    <figure data-rehype-pretty-code-figure>
+    <figure>
       <pre class="bg-primary-foreground overflow-x-auto p-4 text-primary text-sm leading-relaxed"><code>{renderedSource}</code></pre>
     </figure>
   {/if}
