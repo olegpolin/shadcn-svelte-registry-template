@@ -74,7 +74,7 @@
       {/if}
     </Button>
     <figure data-rehype-pretty-code-figure>
-      <pre class="bg-muted/30 overflow-x-auto p-4 text-sm leading-relaxed"><code>{renderedSource}</code></pre>
+      <pre class="bg-primary-foreground overflow-x-auto p-4 text-primary text-sm leading-relaxed"><code>{renderedSource}</code></pre>
     </figure>
   {/if}
 </div>
