@@ -302,7 +302,7 @@
     <!-- ButtonGroupInputGroupDemo -->
     <ButtonGroup.Root class="[--radius:9999rem]">
       <ButtonGroup.Root>
-        <Button variant="outline" size="icon">
+        <Button variant="outline" size="icon" aria-label="Add">
           <PlusIcon />
         </Button>
       </ButtonGroup.Root>
@@ -323,6 +323,7 @@
                     data-active={voiceEnabled}
                     class="data-[active=true]:bg-orange-100 data-[active=true]:text-orange-700 dark:data-[active=true]:bg-orange-800 dark:data-[active=true]:text-orange-100"
                     aria-pressed={voiceEnabled}
+                    aria-label="Toggle voice mode"
                   >
                     <AudioLines />
                   </InputGroup.Button>
@@ -373,7 +374,7 @@
           <Tooltip.Root>
             <Tooltip.Trigger>
               {#snippet child({ props })}
-                <InputGroup.Button {...props} class="rounded-full" size="icon-xs">
+                <InputGroup.Button {...props} class="rounded-full" size="icon-xs" aria-label="Info">
                   <InfoIcon />
                 </InputGroup.Button>
               {/snippet}
@@ -385,7 +386,7 @@
       <InputGroup.Root>
         <InputGroup.Textarea placeholder="Ask, Search or Chat..." />
         <InputGroup.Addon align="block-end">
-          <InputGroup.Button variant="outline" class="rounded-full" size="icon-xs">
+          <InputGroup.Button variant="outline" class="rounded-full" size="icon-xs" aria-label="Add attachment">
             <IconPlus />
           </InputGroup.Button>
           <DropdownMenu.Root>
@@ -600,6 +601,7 @@
                           variant="outline"
                           size={!hasMentions ? "sm" : "icon-sm"}
                           class="rounded-full transition-transform"
+                          aria-label={hasMentions ? "Add context" : undefined}
                         >
                           <AtIcon />
                           {!hasMentions && "Add context"}
