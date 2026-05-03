@@ -2,6 +2,8 @@
   import './layout.css';
   import { page } from '$app/state';
   import favicon from '$lib/assets/favicon.svg';
+  import { navigating } from '$app/state';
+  import { fade } from 'svelte/transition';
   import { ModeWatcher } from 'mode-watcher';
   import * as Tooltip from '$lib/registry/ui/tooltip';
   import Header from '$lib/components/header.svelte';
@@ -17,6 +19,13 @@
 </svelte:head>
 
 <ModeWatcher defaultMode="dark"/>
+
+{#if navigating.to}
+  <div
+    class="fixed top-0 left-0 z-100 h-1 w-full animate-slide-gradient bg-linear-to-r from-red-500 via-orange-300 to-red-500 bg-size-[200%_100%]"
+    in:fade={{ delay: 300 }}
+  ></div>
+{/if}
 
 <div class="min-h-svh flex flex-col">
   <Header sidebarNavLinks={data.sidebarNavLinks} />
