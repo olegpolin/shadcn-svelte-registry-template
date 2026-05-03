@@ -3,6 +3,7 @@
   import { page } from '$app/state';
   import favicon from '$lib/assets/favicon.svg';
   import { ModeWatcher } from 'mode-watcher';
+  import * as Tooltip from '$lib/registry/ui/tooltip';
   import Header from '$lib/components/header.svelte';
   import Footer from '$lib/components/footer.svelte';
   import type { LayoutProps } from './$types';
@@ -21,7 +22,9 @@
   <Header sidebarNavLinks={data.sidebarNavLinks} />
 
   <main class="flex-1 flex flex-col">
-    {@render children()}
+    <Tooltip.Provider>
+      {@render children()}
+    </Tooltip.Provider>
   </main>
 
   <Footer />
