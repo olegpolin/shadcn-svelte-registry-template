@@ -78,7 +78,7 @@
     </Button>
     <figure>
       <pre
-        class="overflow-x-auto bg-primary-foreground p-4 text-sm leading-relaxed text-primary"><code
+        class="overflow-x-auto bg-neutral-50 dark:bg-neutral-900 p-4 text-sm leading-relaxed text-neutral-900 dark:text-neutral-200"><code
           >{renderedSource}</code
         ></pre>
     </figure>
