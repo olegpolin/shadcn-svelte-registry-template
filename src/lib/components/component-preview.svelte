@@ -45,7 +45,7 @@
 
 <div
   class={cn(
-    'no-prose-docs group relative mt-4 mb-12 flex flex-col gap-2 rounded-lg border',
+    'no-prose-docs group relative mt-4 mb-12 flex flex-col rounded-lg border overflow-hidden',
     className
   )}
   {...restProps}
@@ -54,7 +54,6 @@
     <div
       data-slot="preview"
       class="preview flex justify-center"
-      data-llm-ignore
     >
       <div
         data-align={align}
