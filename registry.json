@@ -957,6 +957,21 @@
       ]
     },
     {
+      "name": "sonner",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sonner/index.ts"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/sonner/sonner.svelte"
+        }
+      ]
+    },
+    {
       "name": "spinner",
       "type": "registry:ui",
       "registryDependencies": [],
