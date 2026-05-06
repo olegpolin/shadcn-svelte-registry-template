@@ -5,6 +5,7 @@
   import { navigating } from '$app/state';
   import { fade } from 'svelte/transition';
   import { ModeWatcher } from 'mode-watcher';
+  import { Toaster } from '$lib/registry/ui/sonner';
   import * as Tooltip from '$lib/registry/ui/tooltip';
   import Header from '$lib/components/header.svelte';
   import Footer from '$lib/components/footer.svelte';
@@ -19,6 +20,8 @@
 </svelte:head>
 
 <ModeWatcher defaultMode="dark" />
+
+<Toaster richColors />
 
 {#if navigating.to}
   <div
