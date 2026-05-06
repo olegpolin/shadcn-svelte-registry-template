@@ -4,6 +4,33 @@
   "homepage": "https://shadcn-svelte-registry-template.vercel.app",
   "items": [
     {
+      "name": "accordion",
+      "type": "registry:ui",
+      "registryDependencies": [],
+      "files": [
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/accordion/accordion-content.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/accordion/accordion-item.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/accordion/accordion-trigger.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/accordion/accordion.svelte"
+        },
+        {
+          "type": "registry:file",
+          "path": "src/lib/registry/ui/accordion/index.ts"
+        }
+      ]
+    },
+    {
       "name": "avatar",
       "type": "registry:ui",
       "registryDependencies": [],
