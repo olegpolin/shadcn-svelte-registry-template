@@ -7,6 +7,7 @@
   import { userPrefersMode } from 'mode-watcher';
   import { headerLinks, type SidebarNavGroup } from '$lib/utils/navigation';
   import CommandMenu from '$lib/components/command-menu.svelte';
+  import { githubRepoUrl } from '$lib/constants';
   import Logo from '$lib/assets/logo.svelte';
   import GitHubIcon from '$lib/assets/icons/github-icon.svelte';
   import ModeSwitcherIcon from '$lib/assets/icons/mode-switcher-icon.svelte';
@@ -116,7 +117,7 @@
     <Button
       variant="ghost"
       size="icon-sm"
-      href="https://github.com/olegpolin/shadcn-svelte-registry-template"
+      href={githubRepoUrl}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="GitHub repository"

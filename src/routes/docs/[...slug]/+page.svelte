@@ -7,9 +7,11 @@
   import { Button } from '$lib/registry/ui/button';
   import DocsToc from '$lib/components/docs-toc.svelte';
   import { findNeighbors } from '$lib/utils/navigation';
+  import { githubRepoUrl } from '$lib/constants';
   import ArrowLeftIcon from '@lucide/svelte/icons/arrow-left';
   import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
   import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
+  import CodeIcon from '@lucide/svelte/icons/code';
 
   let { data }: PageProps = $props();
   let Markdown = $derived(data.markdown);
@@ -27,7 +29,7 @@
 
 <Seo
   title={data.meta.title}
-  description={data.meta.description || 'Documentation for shadcn-svelte registry template.'}
+  description={data.meta.description || 'Documentation for shadcn-svelte.'}
 />
 
 <div
@@ -94,6 +96,15 @@
             >
               View shadcn-svelte docs
               <ArrowUpRightIcon />
+            </Badge>
+            <Badge
+              href={`${githubRepoUrl}/tree/main/src/lib/registry/ui/${data.slug.replace('components/', '')}`}
+              variant="secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Component source
+              <CodeIcon />
             </Badge>
           </div>
         {/if}
