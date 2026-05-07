@@ -144,7 +144,6 @@
 }
 
 @utility prose-docs {
-  /* base wrapper if you want a consistent text color */
   @apply text-foreground;
 
   & h2:not(:where(.no-prose-docs *)) {
@@ -167,7 +166,6 @@
     @apply mt-4!;
   }
 
-  /* mirrors: *:[code]:text-xl */
   & h3:not(:where(.no-prose-docs *)) code:not(:where(.no-prose-docs *)) {
     @apply text-xl;
   }
@@ -188,12 +186,10 @@
     @apply font-semibold;
   }
 
-  /* inline code */
   & code:not(pre code):not(:where(.no-prose-docs *)) {
     @apply relative rounded-md bg-muted px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem];
   }
 
-  /* fenced code block container */
   & pre {
     @apply no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5;
   }
