@@ -48,7 +48,7 @@
   >
     <Dialog.Header class="sr-only">
       <Dialog.Title>Search components...</Dialog.Title>
-      <Dialog.Description>Search for a command to run...</Dialog.Description>
+      <Dialog.Description>Search for a component to navigate to...</Dialog.Description>
     </Dialog.Header>
     <Command.Root class="rounded-none bg-transparent">
       <Command.Input placeholder="Search components..." />

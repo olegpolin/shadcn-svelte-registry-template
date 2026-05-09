@@ -64,7 +64,7 @@ The `Item` component has different sizes for different use cases. For example, y
 
 ### Link
 
-To render an item as a link, use the the `child` snippet. The hover and focus states will be applied to the anchor element.
+To render an item as a link, use the `child` snippet. The hover and focus states will be applied to the anchor element.
 
 <ComponentPreview name="item-link" />
 

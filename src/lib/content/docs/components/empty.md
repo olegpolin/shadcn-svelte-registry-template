@@ -1,6 +1,6 @@
 ---
 title: Empty
-description: Use the Empty component to display a empty state.
+description: Use the Empty component to display an empty state.
 ---
 
 <script>
@@ -20,11 +20,11 @@ description: Use the Empty component to display a empty state.
 <CodeBlock name="empty-usage" />
 
 
-## Usage
+## Examples
 
 ### Outline
 
-Use the `border` utility class to create a outline empty state.
+Use the `border` utility class to create an outline empty state.
 
 <ComponentPreview name="empty-outline" />
 

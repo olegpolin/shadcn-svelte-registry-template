@@ -1,6 +1,6 @@
 ---
-title: Installation
-description: How to install dependencies and structure your app.
+title: Theming
+description: Use CSS Variables to customize the look and feel of your application.
 ---
 
 We use CSS variables for styling. This allows you to easily change the colors of components without having to update class names.

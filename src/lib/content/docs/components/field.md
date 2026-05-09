@@ -1,6 +1,6 @@
 ---
 title: Field
-description: Displays a badge or a component that looks like a badge.
+description: Combine labels, controls, and help text to compose accessible form fields and grouped inputs.
 ---
 
 <script>
