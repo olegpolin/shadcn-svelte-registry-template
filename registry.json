@@ -2,6 +2,13 @@
   "$schema": "https://shadcn-svelte.com/schema/registry.json",
   "name": "shadcn-svelte-registry-template",
   "homepage": "https://shadcn-svelte-registry-template.vercel.app",
+  "aliases": {
+    "lib": "#lib/registry/lib",
+    "ui": "#lib/registry/ui",
+    "components": "#lib/registry/components",
+    "utils": "#lib/utils",
+    "hooks": "#lib/registry/hooks"
+  },
   "items": [
     {
       "name": "accordion",
